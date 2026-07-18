@@ -1,137 +1,196 @@
-<script>
-function findIdeas() {
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrashForm</title>
 
-    let material =
-        document.getElementById("material").value;
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
 
-    let quantity =
-        parseInt(document.getElementById("quantity").value);
+        h1 {
+            color: #2E8B57;
+        }
 
-    let result =
-        document.getElementById("result");
+        select, input, button {
+            padding: 10px;
+            margin: 5px;
+        }
 
-    if(material === "plastic bottle") {
+        button {
+            background-color: #2E8B57;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
 
-        if(quantity >= 5) {
+        #result {
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
 
-            result.innerHTML = `
-                <h2>Vertical Garden</h2>
+    <h1>TrashForm</h1>
 
-                <p><strong>Materials Used:</strong> 5 Plastic Bottles</p>
+    <p>Turn waste into useful products.</p>
 
-                <p><strong>Difficulty:</strong> Easy ⭐</p>
+    <select id="material">
+        <option value="plastic bottle">Plastic Bottle</option>
+        <option value="milk carton">Milk Carton</option>
+        <option value="cardboard">Cardboard</option>
+    </select>
 
-                <h3>Steps</h3>
+    <input type="number" id="quantity" min="1" value="1">
 
-                <ol>
-                    <li>Wash all bottles thoroughly.</li>
-                    <li>Cut a rectangular opening in each bottle.</li>
-                    <li>Make small drainage holes.</li>
-                    <li>Thread string through the bottles.</li>
-                    <li>Add soil and plants.</li>
-                    <li>Hang vertically.</li>
-                </ol>
+    <button onclick="findIdeas()">Find Projects</button>
 
-                <p><strong>Environmental Impact:</strong> Reuses 5 plastic bottles.</p>
-            `;
+    <div id="result"></div>
 
-        } else {
+    <script>
+    function findIdeas() {
 
-            result.innerHTML = `
-                <h2>Plant Pot</h2>
+        let material =
+            document.getElementById("material").value;
 
-                <p><strong>Materials Used:</strong> 1 Plastic Bottle</p>
+        let quantity =
+            parseInt(document.getElementById("quantity").value);
 
-                <p><strong>Difficulty:</strong> Easy ⭐</p>
+        let result =
+            document.getElementById("result");
 
-                <h3>Steps</h3>
+        if(material === "plastic bottle") {
 
-                <ol>
-                    <li>Clean the bottle thoroughly.</li>
-                    <li>Cut the bottle in half.</li>
-                    <li>Decorate the outside if desired.</li>
-                    <li>Add drainage holes.</li>
-                    <li>Fill with soil.</li>
-                    <li>Plant seeds or a small plant.</li>
-                </ol>
+            if(quantity >= 5) {
 
-                <p><strong>Environmental Impact:</strong> Reuses 1 plastic bottle.</p>
-            `;
+                result.innerHTML = `
+                    <h2>Vertical Garden</h2>
+
+                    <p><strong>Materials Used:</strong> 5 Plastic Bottles</p>
+
+                    <p><strong>Difficulty:</strong> Easy ⭐</p>
+
+                    <h3>Steps</h3>
+
+                    <ol>
+                        <li>Wash all bottles thoroughly.</li>
+                        <li>Cut a rectangular opening in each bottle.</li>
+                        <li>Make small drainage holes.</li>
+                        <li>Thread string through the bottles.</li>
+                        <li>Add soil and plants.</li>
+                        <li>Hang vertically.</li>
+                    </ol>
+
+                    <p><strong>Environmental Impact:</strong> Reuses 5 plastic bottles.</p>
+                `;
+
+            } else {
+
+                result.innerHTML = `
+                    <h2>Plant Pot</h2>
+
+                    <p><strong>Materials Used:</strong> 1 Plastic Bottle</p>
+
+                    <p><strong>Difficulty:</strong> Easy ⭐</p>
+
+                    <h3>Steps</h3>
+
+                    <ol>
+                        <li>Clean the bottle thoroughly.</li>
+                        <li>Cut the bottle in half.</li>
+                        <li>Decorate the outside if desired.</li>
+                        <li>Add drainage holes.</li>
+                        <li>Fill with soil.</li>
+                        <li>Plant seeds or a small plant.</li>
+                    </ol>
+
+                    <p><strong>Environmental Impact:</strong> Reuses 1 plastic bottle.</p>
+                `;
+
+            }
 
         }
 
-    }
+        else if(material === "milk carton") {
 
-    else if(material === "milk carton") {
+            if(quantity >= 2) {
 
-        if(quantity >= 2) {
+                result.innerHTML = `
+                    <h2>Storage Organizer</h2>
+
+                    <p><strong>Materials Used:</strong> 2 Milk Cartons</p>
+
+                    <p><strong>Difficulty:</strong> Medium ⭐⭐</p>
+
+                    <h3>Steps</h3>
+
+                    <ol>
+                        <li>Wash and dry the milk cartons.</li>
+                        <li>Cut off the top sections.</li>
+                        <li>Wrap with paper or fabric.</li>
+                        <li>Glue cartons together.</li>
+                        <li>Create compartments for storage.</li>
+                    </ol>
+
+                    <p><strong>Environmental Impact:</strong> Reuses 2 milk cartons.</p>
+                `;
+
+            } else {
+
+                result.innerHTML = `
+                    <h2>Pencil Holder</h2>
+
+                    <p><strong>Materials Used:</strong> 1 Milk Carton</p>
+
+                    <p><strong>Difficulty:</strong> Easy ⭐</p>
+
+                    <h3>Steps</h3>
+
+                    <ol>
+                        <li>Wash and dry the milk carton.</li>
+                        <li>Cut it to your preferred height.</li>
+                        <li>Decorate with paint or paper.</li>
+                        <li>Place pencils and stationery inside.</li>
+                    </ol>
+
+                    <p><strong>Environmental Impact:</strong> Reuses 1 milk carton.</p>
+                `;
+
+            }
+
+        }
+
+        else if(material === "cardboard") {
 
             result.innerHTML = `
-                <h2>Storage Organizer</h2>
+                <h2>Desk Organizer</h2>
 
-                <p><strong>Materials Used:</strong> 2 Milk Cartons</p>
-
-                <p><strong>Difficulty:</strong> Medium ⭐⭐</p>
-
-                <h3>Steps</h3>
-
-                <ol>
-                    <li>Wash and dry the milk cartons.</li>
-                    <li>Cut off the top sections.</li>
-                    <li>Wrap with paper or fabric.</li>
-                    <li>Glue cartons together.</li>
-                    <li>Create compartments for storage.</li>
-                </ol>
-
-                <p><strong>Environmental Impact:</strong> Reuses 2 milk cartons.</p>
-            `;
-
-        } else {
-
-            result.innerHTML = `
-                <h2>Pencil Holder</h2>
-
-                <p><strong>Materials Used:</strong> 1 Milk Carton</p>
+                <p><strong>Materials Used:</strong> Cardboard</p>
 
                 <p><strong>Difficulty:</strong> Easy ⭐</p>
 
                 <h3>Steps</h3>
 
                 <ol>
-                    <li>Wash and dry the milk carton.</li>
-                    <li>Cut it to your preferred height.</li>
-                    <li>Decorate with paint or paper.</li>
-                    <li>Place pencils and stationery inside.</li>
+                    <li>Measure the desired organizer size.</li>
+                    <li>Cut cardboard pieces.</li>
+                    <li>Glue pieces together.</li>
+                    <li>Create compartments.</li>
+                    <li>Decorate if desired.</li>
                 </ol>
 
-                <p><strong>Environmental Impact:</strong> Reuses 1 milk carton.</p>
+                <p><strong>Environmental Impact:</strong> Reuses cardboard waste.</p>
             `;
-
         }
-
     }
+    </script>
 
-    else if(material === "cardboard") {
-
-        result.innerHTML = `
-            <h2>Desk Organizer</h2>
-
-            <p><strong>Materials Used:</strong> Cardboard</p>
-
-            <p><strong>Difficulty:</strong> Easy ⭐</p>
-
-            <h3>Steps</h3>
-
-            <ol>
-                <li>Measure the desired organizer size.</li>
-                <li>Cut cardboard pieces.</li>
-                <li>Glue pieces together.</li>
-                <li>Create compartments.</li>
-                <li>Decorate if desired.</li>
-            </ol>
-
-            <p><strong>Environmental Impact:</strong> Reuses cardboard waste.</p>
-        `;
-    }
-}
-</script>
+</body>
+</html>
