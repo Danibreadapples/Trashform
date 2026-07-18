@@ -17,8 +17,7 @@
 
 <button onclick="findIdeas()">Find Projects</button>
 
-<p id="result"></p>
-
+<div id="result"></div>
    <script>
 function findIdeas() {
 
@@ -34,9 +33,23 @@ function findIdeas() {
     if(material === "plastic bottle") {
 
         if(quantity >= 5) {
-            result.innerHTML =
-                "Project: Vertical Garden<br>" +
-                "Uses 5 plastic bottles.";
+       result.innerHTML =
+`
+<h2>Vertical Garden</h2>
+
+<p>Uses 5 plastic bottles</p>
+
+<h3>Steps</h3>
+
+<ol>
+    <li>Wash all bottles thoroughly.</li>
+    <li>Cut a rectangular opening in each bottle.</li>
+    <li>Make small drainage holes.</li>
+    <li>Thread string through the bottles.</li>
+    <li>Add soil and plants.</li>
+    <li>Hang vertically.</li>
+</ol>
+`;
         }
         else {
             result.innerHTML =
