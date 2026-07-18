@@ -2,7 +2,8 @@
 <html>
 
 <head>
-<title>TrashForm AI</title>
+
+<title>TrashForm</title>
 
 <style>
 
@@ -38,17 +39,17 @@ button:hover {
 }
 
 #result {
-    background:white;
-    margin-top:25px;
-    padding:20px;
-    border-radius:15px;
+    background: white;
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .project {
-    border:1px solid #ddd;
-    padding:15px;
-    margin-top:15px;
-    border-radius:10px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
 }
 
 </style>
@@ -58,39 +59,56 @@ button:hover {
 
 <body>
 
-<h1>♻️ TrashForm AI</h1>
+
+<h1>♻️ TrashForm</h1>
 
 <p>
-Transform your waste into useful products.
+Turn your waste into useful products.
 </p>
 
 
-<h3>Enter Your Materials</h3>
+<h3>Enter Your Waste Materials</h3>
 
 
+<label>
 Plastic Bottles:
+</label>
+
 <input id="plastic" type="number" min="0" value="0">
 
 <br>
 
+
+<label>
 Milk Cartons:
+</label>
+
 <input id="carton" type="number" min="0" value="0">
 
 <br>
 
+
+<label>
 Cardboard:
+</label>
+
 <input id="cardboard" type="number" min="0" value="0">
 
 <br>
 
+
+<label>
 Aluminum Cans:
+</label>
+
 <input id="cans" type="number" min="0" value="0">
+
 
 <br><br>
 
 
 <button onclick="findIdeas()">
-🤖 Generate AI Recommendations
+Find Upcycling Ideas
 </button>
 
 
@@ -108,25 +126,30 @@ function findIdeas(){
 let plastic =
 Number(document.getElementById("plastic").value);
 
+
 let carton =
 Number(document.getElementById("carton").value);
+
 
 let cardboard =
 Number(document.getElementById("cardboard").value);
 
+
 let cans =
 Number(document.getElementById("cans").value);
+
 
 
 let result =
 document.getElementById("result");
 
 
+
 let projects = [];
 
 
 
-// Combined materials
+// Mixed materials project
 
 if(plastic >= 5 && carton >= 2){
 
@@ -140,17 +163,23 @@ materials:"5 Plastic Bottles + 2 Milk Cartons",
 
 difficulty:"Medium ⭐⭐",
 
-reason:"You have enough mixed materials for a larger project.",
+reason:"You have enough different materials for a larger project.",
 
 steps:[
-"Clean all materials.",
-"Cut openings into bottles.",
-"Use cartons for plant labels.",
-"Add soil.",
-"Plant seeds."
+
+"Clean all materials thoroughly.",
+
+"Cut openings into plastic bottles.",
+
+"Use cartons to create plant labels.",
+
+"Add soil into the bottles.",
+
+"Plant seeds or small plants."
+
 ],
 
-impact:"Reuses different waste types together."
+impact:"Reuses multiple waste materials together."
 
 });
 
@@ -158,7 +187,7 @@ impact:"Reuses different waste types together."
 
 
 
-// Plastic projects
+// Plastic bottle projects
 
 if(plastic >= 5){
 
@@ -172,21 +201,28 @@ materials:"5 Plastic Bottles",
 
 difficulty:"Medium ⭐⭐",
 
-reason:"You have enough bottles for a multi-bottle project.",
+reason:"You have enough bottles to create a multi-container garden.",
 
 steps:[
-"Wash bottles.",
-"Create planting openings.",
+
+"Wash the bottles.",
+
+"Cut planting openings.",
+
 "Make drainage holes.",
+
 "Add soil.",
-"Grow plants."
+
+"Plant seeds."
+
 ],
 
-impact:"Prevents plastic waste from entering landfills."
+impact:"Reduces plastic waste by giving bottles another purpose."
 
 });
 
 }
+
 
 
 if(plastic >= 1){
@@ -201,17 +237,23 @@ materials:"1 Plastic Bottle",
 
 difficulty:"Easy ⭐",
 
-reason:"A simple project suitable for small quantities.",
+reason:"A simple project that works with a small amount of material.",
 
 steps:[
+
 "Clean the bottle.",
-"Cut it safely.",
-"Add drainage holes.",
-"Fill with soil.",
-"Plant seeds."
+
+"Cut the bottle safely.",
+
+"Create drainage holes.",
+
+"Add soil.",
+
+"Plant a small plant."
+
 ],
 
-impact:"Gives plastic bottles a second use."
+impact:"Extends the lifespan of plastic materials."
 
 });
 
@@ -233,16 +275,21 @@ materials:"2 Milk Cartons",
 
 difficulty:"Easy ⭐",
 
-reason:"You have enough cartons to create storage.",
+reason:"Your cartons can be transformed into reusable storage.",
 
 steps:[
-"Clean cartons.",
-"Cut the tops.",
-"Join cartons together.",
-"Decorate."
+
+"Clean the cartons.",
+
+"Cut the top sections.",
+
+"Join the cartons together.",
+
+"Decorate the outside."
+
 ],
 
-impact:"Turns packaging waste into useful storage."
+impact:"Transforms packaging waste into useful storage."
 
 });
 
@@ -250,13 +297,13 @@ impact:"Turns packaging waste into useful storage."
 
 
 
-// Cardboard
+// Cardboard project
 
 if(cardboard >= 1){
 
 projects.push({
 
-name:"Cardboard Organizer",
+name:"Cardboard Desk Organizer",
 
 score:70,
 
@@ -264,16 +311,21 @@ materials:"Cardboard",
 
 difficulty:"Easy ⭐",
 
-reason:"Cardboard can easily be reshaped.",
+reason:"Cardboard can easily be reshaped into organizers.",
 
 steps:[
-"Measure cardboard.",
-"Cut pieces.",
-"Glue sections.",
+
+"Measure cardboard pieces.",
+
+"Cut the required shapes.",
+
+"Glue pieces together.",
+
 "Create compartments."
+
 ],
 
-impact:"Extends the life of cardboard."
+impact:"Reduces unnecessary cardboard waste."
 
 });
 
@@ -281,13 +333,13 @@ impact:"Extends the life of cardboard."
 
 
 
-// Cans
+// Can project
 
 if(cans >= 3){
 
 projects.push({
 
-name:"Can Pen Holder",
+name:"Aluminum Can Pen Holder",
 
 score:65,
 
@@ -295,16 +347,21 @@ materials:"3 Aluminum Cans",
 
 difficulty:"Easy ⭐",
 
-reason:"Enough cans available for a reusable holder.",
+reason:"You have enough cans for a reusable container.",
 
 steps:[
-"Clean cans.",
+
+"Clean the cans.",
+
 "Remove unsafe edges.",
-"Decorate.",
-"Use as storage."
+
+"Decorate the cans.",
+
+"Use them as holders."
+
 ],
 
-impact:"Recycles aluminum waste."
+impact:"Recycles aluminum materials."
 
 });
 
@@ -312,18 +369,18 @@ impact:"Recycles aluminum waste."
 
 
 
-// Sort by AI score
+// Sort projects by score
 
 projects.sort(function(a,b){
 
-return b.score-a.score;
+return b.score - a.score;
 
 });
 
 
 
 
-// Display multiple results
+// Display results
 
 if(projects.length > 0){
 
@@ -331,7 +388,7 @@ if(projects.length > 0){
 let output = `
 
 <h2>
-🤖 TrashForm AI Results
+Recommended Projects
 </h2>
 
 `;
@@ -341,11 +398,23 @@ let output = `
 projects.forEach(function(project,index){
 
 
-let medal =
-index==0 ? "🥇" :
-index==1 ? "🥈" :
-index==2 ? "🥉" :
-"♻️";
+let rank = "";
+
+if(index === 0){
+rank = "🥇";
+}
+
+else if(index === 1){
+rank = "🥈";
+}
+
+else if(index === 2){
+rank = "🥉";
+}
+
+else{
+rank = "♻️";
+}
 
 
 
@@ -353,39 +422,47 @@ output += `
 
 <div class="project">
 
+
 <h2>
-${medal} ${project.name}
+${rank} ${project.name}
 </h2>
 
+
 <p>
-<b>AI Match:</b> ${project.score}%
+<b>Match Score:</b>
+${project.score}%
 </p>
 
 
 <p>
-<b>Materials:</b> ${project.materials}
+<b>Materials:</b>
+${project.materials}
 </p>
 
 
 <p>
-<b>Difficulty:</b> ${project.difficulty}
+<b>Difficulty:</b>
+${project.difficulty}
 </p>
 
 
 <p>
-<b>Why recommended:</b> ${project.reason}
+<b>Why this fits:</b>
+${project.reason}
 </p>
+
 
 
 <h3>
-Steps:
+How To Make It:
 </h3>
+
 
 <ol>
 
 ${project.steps.map(function(step){
 
-return "<li>"+step+"</li>";
+return "<li>" + step + "</li>";
 
 }).join("")}
 
@@ -415,10 +492,12 @@ else{
 
 result.innerHTML = `
 
-<h2>🤖 TrashForm AI</h2>
+<h2>
+TrashForm
+</h2>
 
 <p>
-I need more materials to generate ideas.
+Add some waste materials to find suitable projects.
 </p>
 
 `;
