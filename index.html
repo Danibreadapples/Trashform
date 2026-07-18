@@ -964,94 +964,39 @@ impact:
 // PLANT ROLL DATABASE
 // =============================
 
-
 const plants = [
 
+{ name:"Mint Plant", emoji:"🌿", rarity:"Common", value:10 },
+{ name:"Grass", emoji:"🌱", rarity:"Common", value:10 },
+{ name:"Dandelion", emoji:"🌾", rarity:"Common", value:10 },
+{ name:"Algae", emoji:"🟢", rarity:"Common", value:10 },
+{ name:"Sunflower", emoji:"🌻", rarity:"Common", value:10 },
 
-{
-name:"Mint Plant",
-rarity:"Common",
-chance:50,
-value:10
-},
+{ name:"Rose", emoji:"🌹", rarity:"Uncommon", value:25 },
+{ name:"Coconut", emoji:"🥥", rarity:"Uncommon", value:25 },
+{ name:"Lavender", emoji:"💜", rarity:"Uncommon", value:25 },
+{ name:"Aloe Vera", emoji:"🌵", rarity:"Uncommon", value:25 },
 
+{ name:"Watermelon", emoji:"🍉", rarity:"Rare", value:100 },
+{ name:"Apple Tree", emoji:"🍎", rarity:"Rare", value:100 },
+{ name:"Orange Tree", emoji:"🍊", rarity:"Rare", value:100 },
+{ name:"Blueberry Plant", emoji:"🫐", rarity:"Rare", value:100 },
 
-{
-name:"Sunflower",
-rarity:"Common",
-chance:50,
-value:10
-},
+{ name:"Orchid", emoji:"🌸", rarity:"Epic", value:200 },
+{ name:"Tulip", emoji:"🌷", rarity:"Epic", value:200 },
+{ name:"Bamboo", emoji:"🎍", rarity:"Epic", value:200 },
+{ name:"Bonsai Tree", emoji:"🌳", rarity:"Epic", value:200 },
 
+{ name:"Hibiscus", emoji:"🌺", rarity:"Legendary", value:500 },
+{ name:"Rafflesia", emoji:"🌼", rarity:"Legendary", value:500 },
+{ name:"Dragon Fruit Plant", emoji:"🐉", rarity:"Legendary", value:500 },
 
-{
-name:"Lavender",
-rarity:"Uncommon",
-chance:25,
-value:25
-},
-
-
-{
-name:"Aloe Vera",
-rarity:"Uncommon",
-chance:25,
-value:25
-},
-
-
-{
-name:"Orchid",
-rarity:"Rare",
-chance:12.5,
-value:50
-},
-
-
-{
-name:"Blueberry Plant",
-rarity:"Rare",
-chance:12.5,
-value:50
-},
-
-
-{
-name:"Bonsai Tree",
-rarity:"Epic",
-chance:7.5,
-value:75
-},
-
-
-{
-name:"Bamboo",
-rarity:"Epic",
-chance:7.5,
-value:75
-},
-
-
-{
-name:"Dragon Fruit Plant",
-rarity:"Legendary",
-chance:4,
-value:150
-},
-
-
-{
-name:"Venus Flytrap",
-rarity:"Mythic",
-chance:1,
-value:300
-}
-
+{ name:"Giant Beanstalk", emoji:"🌿", rarity:"Mythic", value:1000 },
+{ name:"Golden Potato", emoji:"🥔", rarity:"Mythic", value:1000 },
+{ name:"Ethanol Plant", emoji:"⚗️", rarity:"Mythic", value:1000 },
+{ name:"Venus Flytrap", emoji:"🪰", rarity:"Mythic", value:1000 }
 
 ];
-// =============================
-// PAGE SYSTEM
-// =============================
 
 
 function openPage(page){
@@ -1423,146 +1368,109 @@ ${random.reason}
 
 function rollPlant(){
 
-
-
 let points =
 Number(localStorage.getItem("ecoPoints")) || 0;
 
-
-
 if(points < 100){
 
-
-document.getElementById("rollResult")
-.innerHTML=
-
+document.getElementById("rollResult").innerHTML =
 "<p>Not enough Eco Points!</p>";
 
 return;
 
-
 }
 
-
-
-
-
-points -=100;
-
+points -= 100;
 
 localStorage.setItem(
 "ecoPoints",
 points
 );
 
+let roll = Math.random() * 100;
 
+let rarity;
 
+if(roll < 50){
 
+rarity = "Common";
 
-let random =
-Math.random()*100;
+}
+else if(roll < 75){
 
+rarity = "Uncommon";
 
+}
+else if(roll < 87.5){
 
-let total=0;
+rarity = "Rare";
 
-let selected=null;
+}
+else if(roll < 95){
 
+rarity = "Epic";
 
+}
+else if(roll < 99){
 
+rarity = "Legendary";
 
-for(let plant of plants){
+}
+else{
 
-
-
-total += plant.chance;
-
-
-
-if(random <= total){
-
-
-selected=plant;
-
-break;
-
+rarity = "Mythic";
 
 }
 
+let pool =
+plants.filter(
+p => p.rarity === rarity
+);
 
-}
-
-
-
-
-
-if(!selected){
-
-selected=plants[0];
-
-}
-
-
-
-
+let selected =
+pool[Math.floor(
+Math.random() * pool.length
+)];
 
 let collection =
 JSON.parse(
 localStorage.getItem("collection")
 ) || [];
 
-
-
 collection.push(selected);
-
-
 
 localStorage.setItem(
 "collection",
 JSON.stringify(collection)
 );
 
-
-
-
-
-
-document.getElementById("rollResult")
-.innerHTML=`
+document.getElementById("rollResult").innerHTML = `
 
 <div class="project">
-
 
 <h2>
 ✨ You got:
 </h2>
 
-
 <h3>
-${selected.name}
+${selected.emoji} ${selected.name}
 </h3>
-
 
 <p>
 <b>Rarity:</b>
 ${selected.rarity}
 </p>
 
-
 <p>
 <b>Sell Value:</b>
 ${selected.value} Eco Points
 </p>
 
-
 </div>
 
 `;
 
-
-
 updateUI();
-
 
 }
 // =============================
@@ -1613,7 +1521,7 @@ output += `
 
 
 <h3>
-🌱 ${plant.name}
+${plant.emoji} ${plant.name}
 </h3>
 
 
