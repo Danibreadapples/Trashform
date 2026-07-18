@@ -1,637 +1,4 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-
-<title>TrashForm</title>
-
-<style>
-
-body {
-    font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: auto;
-    padding: 30px;
-    background: #eef7ee;
-}
-
-
-h1 {
-    color: #2e8b57;
-}
-
-
-h3 {
-    color: #2e8b57;
-}
-
-
-input {
-    width: 120px;
-    padding: 8px;
-    margin: 5px;
-    border-radius: 5px;
-    border: 1px solid #aaa;
-}
-
-
-button {
-
-    padding: 12px 20px;
-
-    background: #2e8b57;
-
-    color: white;
-
-    border: none;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-}
-
-
-button:hover {
-
-    background:#246b45;
-
-}
-
-
-
-#result {
-
-    background:white;
-
-    margin-top:25px;
-
-    padding:20px;
-
-    border-radius:15px;
-
-}
-
-
-
-.project {
-
-    border:1px solid #ddd;
-
-    padding:15px;
-
-    margin-top:15px;
-
-    border-radius:10px;
-
-}
-
-
-
-li {
-
-    margin:5px;
-
-}
-
-
-</style>
-
-
-</head>
-
-
-
-<body>
-
-
-<h1>
-♻️ TrashForm
-</h1>
-
-
-<p>
-Turn your waste into useful products.
-</p>
-
-
-
-<h3>
-Enter Your Waste Materials
-</h3>
-
-
-
-<label>
-Plastic Bottles:
-</label>
-
-<input 
-id="plastic"
-type="number"
-min="0"
-value="0">
-
-<br>
-
-
-
-<label>
-Milk Cartons:
-</label>
-
-<input 
-id="carton"
-type="number"
-min="0"
-value="0">
-
-<br>
-
-
-
-<label>
-Cardboard:
-</label>
-
-<input 
-id="cardboard"
-type="number"
-min="0"
-value="0">
-
-<br>
-
-
-
-<label>
-Aluminum Cans:
-</label>
-
-<input 
-id="cans"
-type="number"
-min="0"
-value="0">
-
-<br>
-
-
-
-<label>
-Glass Bottles:
-</label>
-
-<input 
-id="glass"
-type="number"
-min="0"
-value="0">
-
-<br>
-
-
-
-<label>
-Old Clothes:
-</label>
-
-<input 
-id="clothes"
-type="number"
-min="0"
-value="0">
-
-<br>
-
-
-
-<label>
-Egg Cartons:
-</label>
-
-<input 
-id="eggs"
-type="number"
-min="0"
-value="0">
-
-
-
-<br><br>
-
-
-
-<button onclick="findIdeas()">
-
-Find Upcycling Ideas
-
-</button>
-
-
-
-<div id="result">
-
-</div>
-<script>
-
-function findIdeas(){
-
-
-let plastic =
-Number(document.getElementById("plastic").value);
-
-let carton =
-Number(document.getElementById("carton").value);
-
-let cardboard =
-Number(document.getElementById("cardboard").value);
-
-let cans =
-Number(document.getElementById("cans").value);
-
-let glass =
-Number(document.getElementById("glass").value);
-
-let clothes =
-Number(document.getElementById("clothes").value);
-
-let eggs =
-Number(document.getElementById("eggs").value);
-
-
-
-let result =
-document.getElementById("result");
-
-
-
-let projects = [];
-
-
-
-// =====================
-// ECO GARDEN STATION
-// =====================
-
-if(plastic >= 5 && carton >= 2){
-
-projects.push({
-
-name:"Eco Garden Station",
-
-score:95,
-
-materials:
-"5 Plastic Bottles + 2 Milk Cartons",
-
-difficulty:
-"Medium ⭐⭐",
-
-reason:
-"You have enough mixed materials for a larger sustainability project.",
-
-
-tools:[
-
-"Scissors",
-
-"String",
-
-"Soil",
-
-"Small plants",
-
-"Decorations"
-
-],
-
-
-steps:[
-
-"Clean all bottles and cartons.",
-
-"Cut openings into plastic bottles.",
-
-"Use cartons as plant labels.",
-
-"Add soil into bottles.",
-
-"Plant seeds or small plants."
-
-],
-
-
-impact:
-"Reuses different waste materials together and creates a reusable garden."
-
-});
-
-}
-
-
-
-// =====================
-// VERTICAL GARDEN
-// =====================
-
-if(plastic >= 5){
-
-projects.push({
-
-name:"Vertical Bottle Garden",
-
-score:85,
-
-materials:
-"5 Plastic Bottles",
-
-
-difficulty:
-"Medium ⭐⭐",
-
-
-reason:
-"You have enough bottles to create a multi-container garden.",
-
-
-tools:[
-
-"Scissors",
-
-"String",
-
-"Soil",
-
-"Seeds"
-
-],
-
-
-steps:[
-
-"Wash all bottles.",
-
-"Cut planting openings.",
-
-"Create drainage holes.",
-
-"Attach bottles together.",
-
-"Add soil and plants."
-
-],
-
-
-impact:
-"Prevents plastic bottles from becoming waste."
-
-});
-
-}
-
-
-
-// =====================
-// BOTTLE PLANT POT
-// =====================
-
-if(plastic >= 1){
-
-projects.push({
-
-name:"Bottle Plant Pot",
-
-score:60,
-
-
-materials:
-"1 Plastic Bottle",
-
-
-difficulty:
-"Easy ⭐",
-
-
-reason:
-"A simple project suitable for small amounts of plastic.",
-
-
-tools:[
-
-"Scissors",
-
-"Soil",
-
-"Seeds",
-
-"Paint or decorations"
-
-],
-
-
-steps:[
-
-"Clean the bottle.",
-
-"Cut the bottle safely.",
-
-"Make drainage holes.",
-
-"Add soil.",
-
-"Plant seeds."
-
-],
-
-
-impact:
-"Gives plastic bottles a second purpose."
-
-});
-
-}
-
-
-
-// =====================
-// MILK CARTON ORGANIZER
-// =====================
-
-if(carton >= 2){
-
-projects.push({
-
-name:"Milk Carton Organizer",
-
-score:75,
-
-
-materials:
-"2 Milk Cartons",
-
-
-difficulty:
-"Easy ⭐",
-
-
-reason:
-"Your cartons can become useful storage.",
-
-
-tools:[
-
-"Scissors",
-
-"Glue",
-
-"Colored paper",
-
-"Markers"
-
-],
-
-
-steps:[
-
-"Clean cartons.",
-
-"Cut the top sections.",
-
-"Glue cartons together.",
-
-"Decorate the outside."
-
-],
-
-
-impact:
-"Transforms packaging waste into reusable storage."
-
-});
-
-}
-
-
-
-// =====================
-// CARDBOARD ORGANIZER
-// =====================
-
-if(cardboard >= 1){
-
-projects.push({
-
-name:"Cardboard Desk Organizer",
-
-score:70,
-
-
-materials:
-"Cardboard",
-
-
-difficulty:
-"Easy ⭐",
-
-
-reason:
-"Cardboard can easily be reshaped into useful products.",
-
-
-tools:[
-
-"Scissors",
-
-"Glue",
-
-"Ruler",
-
-"Decorations"
-
-],
-
-
-steps:[
-
-"Measure cardboard pieces.",
-
-"Cut required shapes.",
-
-"Glue sections together.",
-
-"Create compartments."
-
-],
-
-
-impact:
-"Extends the lifespan of cardboard waste."
-
-});
-
-}
-
-
-
-// =====================
-// ALUMINUM CAN HOLDER
-// =====================
-
-if(cans >= 3){
-
-projects.push({
-
-name:"Aluminum Can Pen Holder",
-
-score:65,
-
-
-materials:
-"3 Aluminum Cans",
-
-
-difficulty:
-"Easy ⭐",
-
-
-reason:
-"You have enough cans for a reusable container.",
-
-
-tools:[
-
-"Paint",
-
-"Brush",
-
-"Decorations",
-
-"Safety gloves"
-
-],
-
-
-steps:[
-
-"Clean cans.",
-
-"Remove unsafe edges.",
-
-"Paint the cans.",
-
-"Use them as holders."
-
-],
-
-
-impact:
-"Recycles aluminum materials."
-
-});
-
-}
-    
 // =====================
 // GLASS BOTTLE VASE
 // =====================
@@ -984,6 +351,506 @@ ${project.impact}
 
 </div>
 
+// =============================
+// SEARCH + RECOMMENDATION SYSTEM
+// =============================
+
+
+
+function findIdeas(){
+
+
+
+let materials = {
+
+
+plastic:
+Number(document.getElementById("plastic").value),
+
+
+carton:
+Number(document.getElementById("carton").value),
+
+
+cardboard:
+Number(document.getElementById("cardboard").value),
+
+
+cans:
+Number(document.getElementById("cans").value),
+
+
+glass:
+Number(document.getElementById("glass").value),
+
+
+clothes:
+Number(document.getElementById("clothes").value),
+
+
+eggs:
+Number(document.getElementById("eggs").value)
+
+
+};
+
+
+
+
+
+let matches = [];
+
+
+
+
+
+projects.forEach(function(project){
+
+
+
+let possible = true;
+
+
+let used = 0;
+
+
+
+for(let item in project.required){
+
+
+
+if(materials[item] < project.required[item]){
+
+
+possible = false;
+
+
+}
+
+
+
+else{
+
+
+used += project.required[item];
+
+}
+
+
+}
+
+
+
+
+if(possible){
+
+
+
+let matchScore = project.score + (used * 2);
+
+
+
+matches.push({
+
+
+...project,
+
+
+matchScore:Math.min(matchScore,100)
+
+
+});
+
+
+
+}
+
+
+
+});
+
+
+
+
+
+matches.sort(function(a,b){
+
+
+return b.matchScore - a.matchScore;
+
+
+});
+
+
+
+
+
+// GIVE ECO POINTS
+
+
+let points = Number(localStorage.getItem("ecoPoints")) || 0;
+
+
+points += 10;
+
+
+localStorage.setItem(
+"ecoPoints",
+points
+);
+
+
+
+
+updateStats();
+
+
+
+
+
+let result =
+document.getElementById("result");
+
+
+
+
+
+if(matches.length === 0){
+
+
+
+result.innerHTML = `
+
+
+<div class="project">
+
+
+<h2>
+No matching projects yet
+</h2>
+
+
+<p>
+Try adding more waste materials.
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+return;
+
+
+}
+
+
+
+
+
+
+
+let output = `
+
+
+
+<div class="card">
+
+
+<h2>
+Recommended Projects
+</h2>
+
+
+<p>
++10 Eco Points earned!
+</p>
+
+
+
+</div>
+
+
+
+`;
+
+
+
+
+
+
+matches.forEach(function(project,index){
+
+
+
+let rank="♻️";
+
+
+
+if(index===0){
+
+rank="🥇";
+
+}
+
+
+else if(index===1){
+
+rank="🥈";
+
+}
+
+
+else if(index===2){
+
+rank="🥉";
+
+}
+
+
+
+
+output += `
+
+
+<div class="project">
+
+
+
+<h2>
+
+${rank} ${project.name}
+
+</h2>
+
+
+
+
+<p>
+
+<b>Match Score:</b>
+
+${project.matchScore}%
+
+</p>
+
+
+
+<p>
+
+<b>Waste Used:</b>
+
+${project.materials}
+
+</p>
+
+
+
+
+<p>
+
+<b>Difficulty:</b>
+
+${project.difficulty}
+
+</p>
+
+
+
+
+
+<h3>
+Tools & Extra Materials
+</h3>
+
+
+<ul>
+
+
+${project.tools.map(function(tool){
+
+
+return "<li>"+tool+"</li>";
+
+
+}).join("")}
+
+
+
+</ul>
+
+
+
+
+
+<p>
+
+<b>Why this fits:</b>
+
+${project.reason}
+
+</p>
+
+
+
+
+
+<h3>
+Steps
+</h3>
+
+
+<ol>
+
+
+${project.steps.map(function(step){
+
+
+return "<li>"+step+"</li>";
+
+
+}).join("")}
+
+
+
+</ol>
+
+
+
+
+
+<p>
+
+<b>Environmental Impact:</b>
+
+${project.impact}
+
+</p>
+
+
+
+
+</div>
+
+
+`;
+
+
+
+
+});
+
+
+
+
+
+result.innerHTML = output;
+
+
+
+}
+
+
+
+
+
+
+
+
+// =============================
+// PROGRESS SYSTEM
+// =============================
+
+
+
+function updateStats(){
+
+
+
+let points =
+Number(localStorage.getItem("ecoPoints")) || 0;
+
+
+
+let searches =
+Number(localStorage.getItem("searches")) || 0;
+
+
+
+let plants =
+Number(localStorage.getItem("plants")) || 0;
+
+
+
+
+document.getElementById("ecoPoints").innerHTML =
+points;
+
+
+
+document.getElementById("totalPoints").innerHTML =
+points;
+
+
+
+document.getElementById("projectsCreated").innerHTML =
+searches;
+
+
+
+document.getElementById("plantsCollected").innerHTML =
+plants;
+
+
+
+}
+
+
+
+
+
+// =============================
+// PAGE SWITCHING
+// =============================
+
+
+
+function openPage(page){
+
+
+
+let pages =
+document.querySelectorAll(".page");
+
+
+
+pages.forEach(function(p){
+
+
+p.classList.remove("active");
+
+
+});
+
+
+
+document.getElementById(page)
+.classList.add("active");
+
+
+
+}
+
+
+
+
+
+
+updateStats();
+
 
 `;
 
@@ -1021,8 +888,565 @@ Add some waste materials to find suitable projects.
 
 
 </script>
+<script>
+
+
+// =============================
+// PROJECT DATABASE
+// =============================
+
+
+const projects = [
+
+
+{
+name:"Eco Garden Station",
+
+materials:
+"5 Plastic Bottles + 2 Milk Cartons",
+
+difficulty:
+"Medium ⭐⭐",
+
+required:{
+plastic:5,
+carton:2
+},
+
+score:95,
+
+
+reason:
+"You have enough mixed materials for a larger garden project.",
+
+
+tools:[
+
+"Scissors",
+
+"String",
+
+"Soil",
+
+"Seeds",
+
+"Small plants"
+
+],
+
+
+steps:[
+
+"Clean bottles and cartons.",
+
+"Cut openings into bottles.",
+
+"Attach bottles together.",
+
+"Add soil.",
+
+"Plant seeds."
+
+],
+
+
+impact:
+"Reuses multiple waste materials to create a garden."
+
+},
+
+
+
+{
+
+
+name:"Vertical Bottle Garden",
+
+
+materials:
+"5 Plastic Bottles",
+
+
+difficulty:
+"Medium ⭐⭐",
+
+
+required:{
+plastic:5
+},
+
+
+score:85,
+
+
+reason:
+"Your plastic bottles can become a reusable garden.",
+
+
+tools:[
+
+"Scissors",
+
+"String",
+
+"Soil",
+
+"Seeds"
+
+],
+
+
+steps:[
+
+"Clean bottles.",
+
+"Cut planting holes.",
+
+"Make drainage holes.",
+
+"Add soil.",
+
+"Plant seeds."
+
+],
+
+
+impact:
+"Reduces plastic waste."
+
+},
+
+
+
+
+{
+
+
+name:"Bottle Plant Pot",
+
+
+materials:
+"1 Plastic Bottle",
+
+
+difficulty:
+"Easy ⭐",
+
+
+required:{
+plastic:1
+},
+
+
+score:60,
+
+
+reason:
+"A simple project for a small amount of plastic.",
+
+
+tools:[
+
+"Scissors",
+
+"Soil",
+
+"Seeds",
+
+"Paint"
+
+],
+
+
+steps:[
+
+"Wash bottle.",
+
+"Cut bottle safely.",
+
+"Create drainage holes.",
+
+"Add soil.",
+
+"Plant."
+
+],
+
+
+impact:
+"Gives plastic bottles a second purpose."
+
+},
+
+
+
+
+
+{
+
+
+name:"Milk Carton Organizer",
+
+
+materials:
+"2 Milk Cartons",
+
+
+difficulty:
+"Easy ⭐",
+
+
+required:{
+carton:2
+},
+
+
+score:75,
+
+
+reason:
+"Milk cartons can become useful storage.",
+
+
+tools:[
+
+"Scissors",
+
+"Glue",
+
+"Colored paper",
+
+"Markers"
+
+],
+
+
+steps:[
+
+"Clean cartons.",
+
+"Cut the top section.",
+
+"Join cartons.",
+
+"Decorate."
+
+],
+
+
+impact:
+"Transforms packaging waste into storage."
+
+},
+
+
+
+
+
+{
+
+
+name:"Cardboard Desk Organizer",
+
+
+materials:
+"Cardboard",
+
+
+difficulty:
+"Easy ⭐",
+
+
+required:{
+cardboard:1
+},
+
+
+score:70,
+
+
+reason:
+"Cardboard can be reshaped into useful items.",
+
+
+tools:[
+
+"Scissors",
+
+"Glue",
+
+"Ruler",
+
+"Decorations"
+
+],
+
+
+steps:[
+
+"Measure cardboard.",
+
+"Cut pieces.",
+
+"Glue sections.",
+
+"Create compartments."
+
+],
+
+
+impact:
+"Extends cardboard usage."
+
+},
+
+
+
+
+
+
+{
+
+
+name:"Aluminum Can Pen Holder",
+
+
+materials:
+"3 Aluminum Cans",
+
+
+difficulty:
+"Easy ⭐",
+
+
+required:{
+cans:3
+},
+
+
+score:65,
+
+
+reason:
+"Cans can become reusable containers.",
+
+
+tools:[
+
+"Paint",
+
+"Brush",
+
+"Decorations"
+
+],
+
+
+steps:[
+
+"Clean cans.",
+
+"Remove unsafe edges.",
+
+"Decorate.",
+
+"Use as holder."
+
+],
+
+
+impact:
+"Recycles aluminum."
+
+},
+
+
+
+
+
+
+{
+
+
+name:"Glass Bottle Vase",
+
+
+materials:
+"1 Glass Bottle",
+
+
+difficulty:
+"Easy ⭐",
+
+
+required:{
+glass:1
+},
+
+
+score:70,
+
+
+reason:
+"Glass bottles make good decorations.",
+
+
+tools:[
+
+"Paint",
+
+"Flowers",
+
+"Brush"
+
+],
+
+
+steps:[
+
+"Clean bottle.",
+
+"Remove labels.",
+
+"Decorate bottle.",
+
+"Add flowers."
+
+],
+
+
+impact:
+"Reuses glass containers."
+
+},
+
+
+
+
+
+
+{
+
+
+name:"Reusable Cloth Bag",
+
+
+materials:
+"Old Clothes",
+
+
+difficulty:
+"Medium ⭐⭐",
+
+
+required:{
+clothes:1
+},
+
+
+score:80,
+
+
+reason:
+"Old fabric can become a useful bag.",
+
+
+tools:[
+
+"Needle",
+
+"Thread",
+
+"Scissors"
+
+],
+
+
+steps:[
+
+"Choose unused clothes.",
+
+"Cut fabric.",
+
+"Sew pieces together.",
+
+"Create handles."
+
+],
+
+
+impact:
+"Reduces textile waste."
+
+},
+
+
+
+
+
+
+{
+
+
+name:"Egg Carton Seed Tray",
+
+
+materials:
+"Egg Carton",
+
+
+difficulty:
+"Easy ⭐",
+
+
+required:{
+eggs:1
+},
+
+
+score:75,
+
+
+reason:
+"Egg cartons are useful for growing plants.",
+
+
+tools:[
+
+"Soil",
+
+"Seeds",
+
+"Water"
+
+],
+
+
+steps:[
+
+"Clean carton.",
+
+"Add soil.",
+
+"Plant seeds.",
+
+"Move seedlings later."
+
+],
+
+
+impact:
+"Turns packaging into gardening tools."
+
+}
+
+
+];
+
+
 
 
 </body>
 
 </html>
+    
