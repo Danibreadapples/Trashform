@@ -7,11 +7,17 @@
     <h1>TrashForm</h1>
     <p>Turn waste into useful products.</p>
 
-    <input type="text" id="material" placeholder="Enter a material">
+<select id="material">
+    <option value="plastic bottle">Plastic Bottle</option>
+    <option value="milk carton">Milk Carton</option>
+    <option value="cardboard">Cardboard</option>
+</select>
 
-    <button onclick="findIdeas()">Search</button>
+<input type="number" id="quantity" min="1" value="1">
 
-    <p id="result"></p>
+<button onclick="findIdeas()">Find Projects</button>
+
+<p id="result"></p>
 
     <script>
         function findIdeas() {
