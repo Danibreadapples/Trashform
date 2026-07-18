@@ -1,196 +1,510 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>TrashForm</title>
+    <title>TrashForm AI</title>
 
     <style>
+
         body {
             font-family: Arial, sans-serif;
             max-width: 800px;
             margin: auto;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 30px;
+            background: #f2f8f2;
         }
 
         h1 {
             color: #2E8B57;
         }
 
-        select, input, button {
-            padding: 10px;
+        input {
+            width: 80px;
+            padding: 8px;
             margin: 5px;
         }
 
         button {
-            background-color: #2E8B57;
+            padding: 12px 20px;
+            background: #2E8B57;
             color: white;
             border: none;
             cursor: pointer;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background: #246b45;
         }
 
         #result {
-            margin-top: 20px;
             background: white;
-            padding: 15px;
-            border-radius: 10px;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 12px;
         }
+
     </style>
+
 </head>
+
+
 <body>
 
-    <h1>TrashForm</h1>
+<h1>♻️ TrashForm AI</h1>
 
-    <p>Turn waste into useful products.</p>
+<p>
+Turn your waste into useful products.
+</p>
 
-    <select id="material">
-        <option value="plastic bottle">Plastic Bottle</option>
-        <option value="milk carton">Milk Carton</option>
-        <option value="cardboard">Cardboard</option>
-    </select>
 
-    <input type="number" id="quantity" min="1" value="1">
+<h3>Enter Your Waste Materials</h3>
 
-    <button onclick="findIdeas()">Find Projects</button>
 
-    <div id="result"></div>
+<label>
+Plastic Bottles:
+</label>
 
-    <script>
-    function findIdeas() {
+<input 
+type="number" 
+id="plastic" 
+min="0" 
+value="0">
 
-        let material =
-            document.getElementById("material").value;
 
-        let quantity =
-            parseInt(document.getElementById("quantity").value);
+<br>
 
-        let result =
-            document.getElementById("result");
 
-        if(material === "plastic bottle") {
+<label>
+Milk Cartons:
+</label>
 
-            if(quantity >= 5) {
+<input 
+type="number" 
+id="carton" 
+min="0" 
+value="0">
 
-                result.innerHTML = `
-                    <h2>Vertical Garden</h2>
 
-                    <p><strong>Materials Used:</strong> 5 Plastic Bottles</p>
+<br>
 
-                    <p><strong>Difficulty:</strong> Easy ⭐</p>
 
-                    <h3>Steps</h3>
+<label>
+Cardboard Pieces:
+</label>
 
-                    <ol>
-                        <li>Wash all bottles thoroughly.</li>
-                        <li>Cut a rectangular opening in each bottle.</li>
-                        <li>Make small drainage holes.</li>
-                        <li>Thread string through the bottles.</li>
-                        <li>Add soil and plants.</li>
-                        <li>Hang vertically.</li>
-                    </ol>
+<input 
+type="number" 
+id="cardboard" 
+min="0" 
+value="0">
 
-                    <p><strong>Environmental Impact:</strong> Reuses 5 plastic bottles.</p>
-                `;
 
-            } else {
+<br>
 
-                result.innerHTML = `
-                    <h2>Plant Pot</h2>
 
-                    <p><strong>Materials Used:</strong> 1 Plastic Bottle</p>
+<label>
+Aluminum Cans:
+</label>
 
-                    <p><strong>Difficulty:</strong> Easy ⭐</p>
+<input 
+type="number" 
+id="cans" 
+min="0" 
+value="0">
 
-                    <h3>Steps</h3>
 
-                    <ol>
-                        <li>Clean the bottle thoroughly.</li>
-                        <li>Cut the bottle in half.</li>
-                        <li>Decorate the outside if desired.</li>
-                        <li>Add drainage holes.</li>
-                        <li>Fill with soil.</li>
-                        <li>Plant seeds or a small plant.</li>
-                    </ol>
+<br><br>
 
-                    <p><strong>Environmental Impact:</strong> Reuses 1 plastic bottle.</p>
-                `;
 
-            }
+<button onclick="findIdeas()">
+🤖 Generate AI Idea
+</button>
 
-        }
 
-        else if(material === "milk carton") {
 
-            if(quantity >= 2) {
+<div id="result">
 
-                result.innerHTML = `
-                    <h2>Storage Organizer</h2>
+</div>
 
-                    <p><strong>Materials Used:</strong> 2 Milk Cartons</p>
 
-                    <p><strong>Difficulty:</strong> Medium ⭐⭐</p>
 
-                    <h3>Steps</h3>
+<script>
 
-                    <ol>
-                        <li>Wash and dry the milk cartons.</li>
-                        <li>Cut off the top sections.</li>
-                        <li>Wrap with paper or fabric.</li>
-                        <li>Glue cartons together.</li>
-                        <li>Create compartments for storage.</li>
-                    </ol>
 
-                    <p><strong>Environmental Impact:</strong> Reuses 2 milk cartons.</p>
-                `;
+function findIdeas(){
 
-            } else {
 
-                result.innerHTML = `
-                    <h2>Pencil Holder</h2>
+let plastic =
+Number(document.getElementById("plastic").value);
 
-                    <p><strong>Materials Used:</strong> 1 Milk Carton</p>
 
-                    <p><strong>Difficulty:</strong> Easy ⭐</p>
+let cartons =
+Number(document.getElementById("carton").value);
 
-                    <h3>Steps</h3>
 
-                    <ol>
-                        <li>Wash and dry the milk carton.</li>
-                        <li>Cut it to your preferred height.</li>
-                        <li>Decorate with paint or paper.</li>
-                        <li>Place pencils and stationery inside.</li>
-                    </ol>
+let cardboard =
+Number(document.getElementById("cardboard").value);
 
-                    <p><strong>Environmental Impact:</strong> Reuses 1 milk carton.</p>
-                `;
 
-            }
+let cans =
+Number(document.getElementById("cans").value);
 
-        }
 
-        else if(material === "cardboard") {
 
-            result.innerHTML = `
-                <h2>Desk Organizer</h2>
+let result =
+document.getElementById("result");
 
-                <p><strong>Materials Used:</strong> Cardboard</p>
 
-                <p><strong>Difficulty:</strong> Easy ⭐</p>
 
-                <h3>Steps</h3>
+let projects = [];
 
-                <ol>
-                    <li>Measure the desired organizer size.</li>
-                    <li>Cut cardboard pieces.</li>
-                    <li>Glue pieces together.</li>
-                    <li>Create compartments.</li>
-                    <li>Decorate if desired.</li>
-                </ol>
 
-                <p><strong>Environmental Impact:</strong> Reuses cardboard waste.</p>
-            `;
-        }
-    }
-    </script>
+
+// PROJECT 1: Eco Garden
+
+if(plastic >= 5 && cartons >= 2){
+
+projects.push({
+
+name:"Eco Garden Station",
+
+score:95,
+
+materials:
+"5 Plastic Bottles + 2 Milk Cartons",
+
+difficulty:
+"Medium ⭐⭐",
+
+steps:[
+
+"Clean all bottles and cartons.",
+
+"Cut openings into the plastic bottles.",
+
+"Use cartons to create plant labels.",
+
+"Add soil and plants.",
+
+"Arrange the bottles into a vertical garden."
+
+],
+
+impact:
+"Reuses multiple waste materials and creates a sustainable garden."
+
+});
+
+}
+
+
+
+// PROJECT 2: Vertical Garden
+
+if(plastic >= 5){
+
+projects.push({
+
+name:"Vertical Bottle Garden",
+
+score:85,
+
+materials:
+"5 Plastic Bottles",
+
+difficulty:
+"Medium ⭐⭐",
+
+steps:[
+
+"Wash plastic bottles.",
+
+"Cut a planting area.",
+
+"Make drainage holes.",
+
+"Add soil.",
+
+"Plant seeds."
+
+],
+
+impact:
+"Prevents plastic bottles from becoming waste."
+
+});
+
+}
+
+
+
+// PROJECT 3: Plant Pot
+
+if(plastic >= 1){
+
+projects.push({
+
+name:"Bottle Plant Pot",
+
+score:60,
+
+materials:
+"1 Plastic Bottle",
+
+difficulty:
+"Easy ⭐",
+
+steps:[
+
+"Clean the bottle.",
+
+"Cut the bottle in half.",
+
+"Create drainage holes.",
+
+"Add soil.",
+
+"Plant a small plant."
+
+],
+
+impact:
+"Gives plastic bottles a second life."
+
+});
+
+}
+
+
+
+// PROJECT 4: Storage Box
+
+if(cartons >= 2){
+
+projects.push({
+
+name:"Milk Carton Storage Box",
+
+score:75,
+
+materials:
+"2 Milk Cartons",
+
+difficulty:
+"Easy ⭐",
+
+steps:[
+
+"Clean the cartons.",
+
+"Cut the top sections.",
+
+"Join cartons together.",
+
+"Decorate the outside.",
+
+"Use as storage."
+
+],
+
+impact:
+"Turns packaging waste into reusable storage."
+
+});
+
+}
+
+
+
+// PROJECT 5: Cardboard Organizer
+
+if(cardboard >= 1){
+
+projects.push({
+
+name:"Cardboard Desk Organizer",
+
+score:70,
+
+materials:
+"Cardboard",
+
+difficulty:
+"Easy ⭐",
+
+steps:[
+
+"Measure cardboard pieces.",
+
+"Cut sections.",
+
+"Glue pieces together.",
+
+"Create compartments.",
+
+"Decorate."
+
+],
+
+impact:
+"Reduces cardboard waste."
+
+});
+
+}
+
+
+
+// PROJECT 6: Can Holder
+
+if(cans >= 3){
+
+projects.push({
+
+name:"Aluminum Can Pen Holder",
+
+score:65,
+
+materials:
+"3 Aluminum Cans",
+
+difficulty:
+"Easy ⭐",
+
+steps:[
+
+"Wash cans.",
+
+"Remove dangerous edges.",
+
+"Paint the cans.",
+
+"Use them as holders."
+
+],
+
+impact:
+"Recycles aluminum materials."
+
+});
+
+}
+
+
+
+
+// AI SELECTS BEST MATCH
+
+if(projects.length > 0){
+
+
+
+projects.sort(function(a,b){
+
+return b.score - a.score;
+
+});
+
+
+
+let best =
+projects[0];
+
+
+
+result.innerHTML = `
+
+
+<h2>
+🤖 TrashForm AI Recommendation
+</h2>
+
+
+<h3>
+${best.name}
+</h3>
+
+
+<p>
+<b>AI Match Score:</b>
+${best.score}%
+</p>
+
+
+<p>
+<b>Materials:</b>
+${best.materials}
+</p>
+
+
+<p>
+<b>Difficulty:</b>
+${best.difficulty}
+</p>
+
+
+
+<h3>
+How To Make It:
+</h3>
+
+
+<ol>
+
+${best.steps.map(function(step){
+
+return "<li>" + step + "</li>";
+
+}).join("")}
+
+</ol>
+
+
+
+<p>
+
+<b>
+Environmental Impact:
+</b>
+
+${best.impact}
+
+</p>
+
+
+`;
+
+
+
+}
+
+else{
+
+
+result.innerHTML = `
+
+<h2>
+🤖 TrashForm AI
+</h2>
+
+<p>
+Add more waste materials so I can generate a project idea!
+</p>
+
+`;
+
+}
+
+
+
+}
+
+
+
+</script>
+
 
 </body>
+
 </html>
