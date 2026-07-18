@@ -19,19 +19,54 @@
 
 <p id="result"></p>
 
-    <script>
-        function findIdeas() {
-            let material = document.getElementById("material").value.toLowerCase();
-            let result = document.getElementById("result");
+   <script>
+function findIdeas() {
 
-            if(material === "plastic bottle") {
-                result.innerHTML = "Plant Pot, Bird Feeder, Phone Stand";
-            } else if(material === "milk carton") {
-                result.innerHTML = "Wallet, Pencil Holder, Storage Box";
-            } else {
-                result.innerHTML = "No ideas found.";
-            }
+    let material =
+        document.getElementById("material").value;
+
+    let quantity =
+        parseInt(document.getElementById("quantity").value);
+
+    let result =
+        document.getElementById("result");
+
+    if(material === "plastic bottle") {
+
+        if(quantity >= 5) {
+            result.innerHTML =
+                "Project: Vertical Garden<br>" +
+                "Uses 5 plastic bottles.";
         }
-    </script>
+        else {
+            result.innerHTML =
+                "Project: Plant Pot<br>" +
+                "Uses 1 plastic bottle.";
+        }
+
+    }
+
+    else if(material === "milk carton") {
+
+        if(quantity >= 2) {
+            result.innerHTML =
+                "Project: Storage Organizer<br>" +
+                "Uses 2 milk cartons.";
+        }
+        else {
+            result.innerHTML =
+                "Project: Pencil Holder<br>" +
+                "Uses 1 milk carton.";
+        }
+
+    }
+
+    else if(material === "cardboard") {
+
+        result.innerHTML =
+            "Project: Desk Organizer";
+    }
+}
+</script>
 </body>
 </html>
