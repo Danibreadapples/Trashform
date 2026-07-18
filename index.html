@@ -15,131 +15,224 @@ body {
     background: #eef7ee;
 }
 
+
 h1 {
     color: #2e8b57;
 }
 
+
+h3 {
+    color: #2e8b57;
+}
+
+
 input {
-    width: 100px;
+    width: 120px;
     padding: 8px;
     margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
 }
+
 
 button {
+
     padding: 12px 20px;
+
     background: #2e8b57;
+
     color: white;
+
     border: none;
+
     border-radius: 8px;
+
     cursor: pointer;
+
 }
+
 
 button:hover {
-    background: #246b45;
+
+    background:#246b45;
+
 }
+
+
 
 #result {
+
     background:white;
+
     margin-top:25px;
+
     padding:20px;
+
     border-radius:15px;
+
 }
 
+
+
 .project {
+
     border:1px solid #ddd;
+
     padding:15px;
+
     margin-top:15px;
+
     border-radius:10px;
+
 }
+
+
+
+li {
+
+    margin:5px;
+
+}
+
 
 </style>
 
+
 </head>
+
 
 
 <body>
 
 
-<h1>♻️ TrashForm</h1>
+<h1>
+♻️ TrashForm
+</h1>
+
 
 <p>
 Turn your waste into useful products.
 </p>
 
 
-<h3>Enter Your Waste Materials</h3>
+
+<h3>
+Enter Your Waste Materials
+</h3>
+
 
 
 <label>
 Plastic Bottles:
 </label>
 
-<input id="plastic" type="number" min="0" value="0">
+<input 
+id="plastic"
+type="number"
+min="0"
+value="0">
 
 <br>
+
 
 
 <label>
 Milk Cartons:
 </label>
 
-<input id="carton" type="number" min="0" value="0">
+<input 
+id="carton"
+type="number"
+min="0"
+value="0">
 
 <br>
+
 
 
 <label>
 Cardboard:
 </label>
 
-<input id="cardboard" type="number" min="0" value="0">
+<input 
+id="cardboard"
+type="number"
+min="0"
+value="0">
 
 <br>
+
 
 
 <label>
 Aluminum Cans:
 </label>
 
-<input id="cans" type="number" min="0" value="0">
+<input 
+id="cans"
+type="number"
+min="0"
+value="0">
 
 <br>
+
 
 
 <label>
 Glass Bottles:
 </label>
 
-<input id="glass" type="number" min="0" value="0">
+<input 
+id="glass"
+type="number"
+min="0"
+value="0">
 
 <br>
+
 
 
 <label>
 Old Clothes:
 </label>
 
-<input id="clothes" type="number" min="0" value="0">
+<input 
+id="clothes"
+type="number"
+min="0"
+value="0">
 
 <br>
+
 
 
 <label>
 Egg Cartons:
 </label>
 
-<input id="eggs" type="number" min="0" value="0">
+<input 
+id="eggs"
+type="number"
+min="0"
+value="0">
+
 
 
 <br><br>
 
 
+
 <button onclick="findIdeas()">
+
 Find Upcycling Ideas
+
 </button>
 
 
-<div id="result"></div>
+
+<div id="result">
+
+</div>
 <script>
 
 function findIdeas(){
@@ -172,11 +265,14 @@ let result =
 document.getElementById("result");
 
 
+
 let projects = [];
 
 
 
-// Plastic + Carton
+// =====================
+// ECO GARDEN STATION
+// =====================
 
 if(plastic >= 5 && carton >= 2){
 
@@ -186,27 +282,48 @@ name:"Eco Garden Station",
 
 score:95,
 
-materials:"5 Plastic Bottles + 2 Milk Cartons",
+materials:
+"5 Plastic Bottles + 2 Milk Cartons",
 
-difficulty:"Medium ⭐⭐",
+difficulty:
+"Medium ⭐⭐",
 
-reason:"You have enough mixed materials for a larger project.",
+reason:
+"You have enough mixed materials for a larger sustainability project.",
+
+
+tools:[
+
+"Scissors",
+
+"String",
+
+"Soil",
+
+"Small plants",
+
+"Decorations"
+
+],
+
 
 steps:[
 
-"Clean all materials.",
+"Clean all bottles and cartons.",
 
 "Cut openings into plastic bottles.",
 
 "Use cartons as plant labels.",
 
-"Add soil.",
+"Add soil into bottles.",
 
-"Plant seeds."
+"Plant seeds or small plants."
 
 ],
 
-impact:"Reuses different waste materials together."
+
+impact:
+"Reuses different waste materials together and creates a reusable garden."
 
 });
 
@@ -214,7 +331,9 @@ impact:"Reuses different waste materials together."
 
 
 
-// Plastic Garden
+// =====================
+// VERTICAL GARDEN
+// =====================
 
 if(plastic >= 5){
 
@@ -224,27 +343,48 @@ name:"Vertical Bottle Garden",
 
 score:85,
 
-materials:"5 Plastic Bottles",
+materials:
+"5 Plastic Bottles",
 
-difficulty:"Medium ⭐⭐",
 
-reason:"You have enough bottles for a garden project.",
+difficulty:
+"Medium ⭐⭐",
+
+
+reason:
+"You have enough bottles to create a multi-container garden.",
+
+
+tools:[
+
+"Scissors",
+
+"String",
+
+"Soil",
+
+"Seeds"
+
+],
+
 
 steps:[
 
-"Wash bottles.",
+"Wash all bottles.",
 
 "Cut planting openings.",
 
 "Create drainage holes.",
 
-"Add soil.",
+"Attach bottles together.",
 
-"Plant seeds."
+"Add soil and plants."
 
 ],
 
-impact:"Reduces plastic waste."
+
+impact:
+"Prevents plastic bottles from becoming waste."
 
 });
 
@@ -252,7 +392,9 @@ impact:"Reduces plastic waste."
 
 
 
-// Single Bottle
+// =====================
+// BOTTLE PLANT POT
+// =====================
 
 if(plastic >= 1){
 
@@ -262,11 +404,31 @@ name:"Bottle Plant Pot",
 
 score:60,
 
-materials:"1 Plastic Bottle",
 
-difficulty:"Easy ⭐",
+materials:
+"1 Plastic Bottle",
 
-reason:"A simple project for a small amount of material.",
+
+difficulty:
+"Easy ⭐",
+
+
+reason:
+"A simple project suitable for small amounts of plastic.",
+
+
+tools:[
+
+"Scissors",
+
+"Soil",
+
+"Seeds",
+
+"Paint or decorations"
+
+],
+
 
 steps:[
 
@@ -274,15 +436,17 @@ steps:[
 
 "Cut the bottle safely.",
 
-"Create drainage holes.",
+"Make drainage holes.",
 
 "Add soil.",
 
-"Plant a small plant."
+"Plant seeds."
 
 ],
 
-impact:"Gives plastic bottles a second use."
+
+impact:
+"Gives plastic bottles a second purpose."
 
 });
 
@@ -290,7 +454,9 @@ impact:"Gives plastic bottles a second use."
 
 
 
-// Cartons
+// =====================
+// MILK CARTON ORGANIZER
+// =====================
 
 if(carton >= 2){
 
@@ -300,25 +466,47 @@ name:"Milk Carton Organizer",
 
 score:75,
 
-materials:"2 Milk Cartons",
 
-difficulty:"Easy ⭐",
+materials:
+"2 Milk Cartons",
 
-reason:"Your cartons can become useful storage.",
 
-steps:[
+difficulty:
+"Easy ⭐",
 
-"Clean the cartons.",
 
-"Cut the top sections.",
+reason:
+"Your cartons can become useful storage.",
 
-"Join cartons together.",
 
-"Decorate."
+tools:[
+
+"Scissors",
+
+"Glue",
+
+"Colored paper",
+
+"Markers"
 
 ],
 
-impact:"Reduces packaging waste."
+
+steps:[
+
+"Clean cartons.",
+
+"Cut the top sections.",
+
+"Glue cartons together.",
+
+"Decorate the outside."
+
+],
+
+
+impact:
+"Transforms packaging waste into reusable storage."
 
 });
 
@@ -326,7 +514,9 @@ impact:"Reduces packaging waste."
 
 
 
-// Cardboard
+// =====================
+// CARDBOARD ORGANIZER
+// =====================
 
 if(cardboard >= 1){
 
@@ -336,17 +526,37 @@ name:"Cardboard Desk Organizer",
 
 score:70,
 
-materials:"Cardboard",
 
-difficulty:"Easy ⭐",
+materials:
+"Cardboard",
 
-reason:"Cardboard can be reshaped into useful items.",
+
+difficulty:
+"Easy ⭐",
+
+
+reason:
+"Cardboard can easily be reshaped into useful products.",
+
+
+tools:[
+
+"Scissors",
+
+"Glue",
+
+"Ruler",
+
+"Decorations"
+
+],
+
 
 steps:[
 
 "Measure cardboard pieces.",
 
-"Cut the pieces.",
+"Cut required shapes.",
 
 "Glue sections together.",
 
@@ -354,7 +564,9 @@ steps:[
 
 ],
 
-impact:"Extends cardboard lifespan."
+
+impact:
+"Extends the lifespan of cardboard waste."
 
 });
 
@@ -362,7 +574,9 @@ impact:"Extends cardboard lifespan."
 
 
 
-// Cans
+// =====================
+// ALUMINUM CAN HOLDER
+// =====================
 
 if(cans >= 3){
 
@@ -372,11 +586,31 @@ name:"Aluminum Can Pen Holder",
 
 score:65,
 
-materials:"3 Aluminum Cans",
 
-difficulty:"Easy ⭐",
+materials:
+"3 Aluminum Cans",
 
-reason:"You have enough cans for a reusable holder.",
+
+difficulty:
+"Easy ⭐",
+
+
+reason:
+"You have enough cans for a reusable container.",
+
+
+tools:[
+
+"Paint",
+
+"Brush",
+
+"Decorations",
+
+"Safety gloves"
+
+],
+
 
 steps:[
 
@@ -384,21 +618,23 @@ steps:[
 
 "Remove unsafe edges.",
 
-"Decorate cans.",
+"Paint the cans.",
 
-"Use as storage."
+"Use them as holders."
 
 ],
 
-impact:"Recycles aluminum materials."
+
+impact:
+"Recycles aluminum materials."
 
 });
 
 }
-
-
-
-// Glass
+    
+// =====================
+// GLASS BOTTLE VASE
+// =====================
 
 if(glass >= 1){
 
@@ -408,25 +644,47 @@ name:"Glass Bottle Vase",
 
 score:70,
 
-materials:"1 Glass Bottle",
 
-difficulty:"Easy ⭐",
+materials:
+"1 Glass Bottle",
 
-reason:"Glass bottles can become decorations.",
+
+difficulty:
+"Easy ⭐",
+
+
+reason:
+"Glass bottles can become reusable decorations.",
+
+
+tools:[
+
+"Paint",
+
+"Brush",
+
+"Flowers",
+
+"Decorations"
+
+],
+
 
 steps:[
 
-"Clean the bottle.",
+"Clean the glass bottle.",
 
 "Remove labels.",
 
 "Decorate the bottle.",
 
-"Add flowers."
+"Add flowers or plants."
 
 ],
 
-impact:"Reuses glass containers."
+
+impact:
+"Reuses glass containers instead of throwing them away."
 
 });
 
@@ -434,7 +692,9 @@ impact:"Reuses glass containers."
 
 
 
-// Clothes
+// =====================
+// CLOTH BAG
+// =====================
 
 if(clothes >= 1){
 
@@ -444,15 +704,35 @@ name:"Reusable Cloth Bag",
 
 score:80,
 
-materials:"Old Clothes",
 
-difficulty:"Medium ⭐⭐",
+materials:
+"Old Clothes",
 
-reason:"Old clothing can be transformed into useful items.",
+
+difficulty:
+"Medium ⭐⭐",
+
+
+reason:
+"Old fabric can be transformed into useful items.",
+
+
+tools:[
+
+"Needle",
+
+"Thread",
+
+"Scissors",
+
+"Fabric"
+
+],
+
 
 steps:[
 
-"Choose unwanted clothes.",
+"Choose unused clothing.",
 
 "Cut fabric pieces.",
 
@@ -462,7 +742,9 @@ steps:[
 
 ],
 
-impact:"Reduces textile waste."
+
+impact:
+"Reduces textile waste."
 
 });
 
@@ -470,7 +752,9 @@ impact:"Reduces textile waste."
 
 
 
-// Egg Cartons
+// =====================
+// EGG CARTON SEED TRAY
+// =====================
 
 if(eggs >= 1){
 
@@ -480,25 +764,47 @@ name:"Egg Carton Seed Tray",
 
 score:75,
 
-materials:"Egg Carton",
 
-difficulty:"Easy ⭐",
+materials:
+"Egg Carton",
 
-reason:"Egg cartons are useful for starting plants.",
+
+difficulty:
+"Easy ⭐",
+
+
+reason:
+"Egg cartons are useful for growing plants.",
+
+
+tools:[
+
+"Soil",
+
+"Seeds",
+
+"Water",
+
+"Small gardening tools"
+
+],
+
 
 steps:[
 
-"Clean the carton.",
+"Clean the egg carton.",
 
 "Add soil.",
 
 "Plant seeds.",
 
-"Move plants when ready."
+"Move seedlings when ready."
 
 ],
 
-impact:"Transforms packaging into gardening tools."
+
+impact:
+"Turns packaging waste into a gardening tool."
 
 });
 
@@ -506,17 +812,22 @@ impact:"Transforms packaging into gardening tools."
 
 
 
-// Sort by score
+// =====================
+// SORT PROJECTS
+// =====================
 
 projects.sort(function(a,b){
 
-return b.score-a.score;
+return b.score - a.score;
 
 });
 
 
 
-// Show results
+// =====================
+// DISPLAY RESULTS
+// =====================
+
 
 if(projects.length > 0){
 
@@ -532,6 +843,7 @@ Recommended Projects
 
 
 projects.forEach(function(project,index){
+
 
 
 let rank;
@@ -563,6 +875,7 @@ rank="♻️";
 
 
 
+
 output += `
 
 
@@ -570,37 +883,80 @@ output += `
 
 
 <h2>
+
 ${rank} ${project.name}
+
 </h2>
 
 
+
 <p>
+
 <b>Match Score:</b>
+
 ${project.score}%
+
 </p>
 
 
+
 <p>
-<b>Materials Needed:</b>
+
+<b>Waste Used:</b>
+
 ${project.materials}
+
 </p>
 
 
+
 <p>
+
 <b>Difficulty:</b>
+
 ${project.difficulty}
+
 </p>
 
-
-<p>
-<b>Why this fits:</b>
-${project.reason}
-</p>
 
 
 <h3>
-How To Make It:
+
+Tools & Extra Materials:
+
 </h3>
+
+
+
+<ul>
+
+${project.tools.map(function(tool){
+
+return "<li>"+tool+"</li>";
+
+}).join("")}
+
+</ul>
+
+
+
+
+<p>
+
+<b>Why this fits:</b>
+
+${project.reason}
+
+</p>
+
+
+
+<h3>
+
+How To Make It:
+
+</h3>
+
 
 
 <ol>
@@ -614,10 +970,16 @@ return "<li>"+step+"</li>";
 </ol>
 
 
+
+
 <p>
+
 <b>Environmental Impact:</b>
+
 ${project.impact}
+
 </p>
+
 
 
 </div>
@@ -633,6 +995,8 @@ result.innerHTML = output;
 
 }
 
+
+
 else{
 
 
@@ -643,7 +1007,7 @@ TrashForm
 </h2>
 
 <p>
-Add some waste materials to find projects.
+Add some waste materials to find suitable projects.
 </p>
 
 `;
@@ -651,7 +1015,9 @@ Add some waste materials to find projects.
 }
 
 
+
 }
+
 
 
 </script>
