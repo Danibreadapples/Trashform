@@ -2,49 +2,56 @@
 <html>
 
 <head>
-    <title>TrashForm AI</title>
+<title>TrashForm AI</title>
 
-    <style>
+<style>
 
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: auto;
-            padding: 30px;
-            background: #f2f8f2;
-        }
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+    background: #eef7ee;
+}
 
-        h1 {
-            color: #2E8B57;
-        }
+h1 {
+    color: #2e8b57;
+}
 
-        input {
-            width: 80px;
-            padding: 8px;
-            margin: 5px;
-        }
+input {
+    width: 100px;
+    padding: 8px;
+    margin: 5px;
+}
 
-        button {
-            padding: 12px 20px;
-            background: #2E8B57;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-        }
+button {
+    padding: 12px 20px;
+    background: #2e8b57;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
-        button:hover {
-            background: #246b45;
-        }
+button:hover {
+    background: #246b45;
+}
 
-        #result {
-            background: white;
-            margin-top: 25px;
-            padding: 20px;
-            border-radius: 12px;
-        }
+#result {
+    background:white;
+    margin-top:25px;
+    padding:20px;
+    border-radius:15px;
+}
 
-    </style>
+.project {
+    border:1px solid #ddd;
+    padding:15px;
+    margin-top:15px;
+    border-radius:10px;
+}
+
+</style>
 
 </head>
 
@@ -54,78 +61,41 @@
 <h1>♻️ TrashForm AI</h1>
 
 <p>
-Turn your waste into useful products.
+Transform your waste into useful products.
 </p>
 
 
-<h3>Enter Your Waste Materials</h3>
+<h3>Enter Your Materials</h3>
 
 
-<label>
 Plastic Bottles:
-</label>
-
-<input 
-type="number" 
-id="plastic" 
-min="0" 
-value="0">
-
+<input id="plastic" type="number" min="0" value="0">
 
 <br>
 
-
-<label>
 Milk Cartons:
-</label>
-
-<input 
-type="number" 
-id="carton" 
-min="0" 
-value="0">
-
+<input id="carton" type="number" min="0" value="0">
 
 <br>
 
-
-<label>
-Cardboard Pieces:
-</label>
-
-<input 
-type="number" 
-id="cardboard" 
-min="0" 
-value="0">
-
+Cardboard:
+<input id="cardboard" type="number" min="0" value="0">
 
 <br>
 
-
-<label>
 Aluminum Cans:
-</label>
-
-<input 
-type="number" 
-id="cans" 
-min="0" 
-value="0">
-
+<input id="cans" type="number" min="0" value="0">
 
 <br><br>
 
 
 <button onclick="findIdeas()">
-🤖 Generate AI Idea
+🤖 Generate AI Recommendations
 </button>
 
 
 
-<div id="result">
-
-</div>
+<div id="result"></div>
 
 
 
@@ -138,32 +108,27 @@ function findIdeas(){
 let plastic =
 Number(document.getElementById("plastic").value);
 
-
-let cartons =
+let carton =
 Number(document.getElementById("carton").value);
-
 
 let cardboard =
 Number(document.getElementById("cardboard").value);
 
-
 let cans =
 Number(document.getElementById("cans").value);
-
 
 
 let result =
 document.getElementById("result");
 
 
-
 let projects = [];
 
 
 
-// PROJECT 1: Eco Garden
+// Combined materials
 
-if(plastic >= 5 && cartons >= 2){
+if(plastic >= 5 && carton >= 2){
 
 projects.push({
 
@@ -171,28 +136,21 @@ name:"Eco Garden Station",
 
 score:95,
 
-materials:
-"5 Plastic Bottles + 2 Milk Cartons",
+materials:"5 Plastic Bottles + 2 Milk Cartons",
 
-difficulty:
-"Medium ⭐⭐",
+difficulty:"Medium ⭐⭐",
+
+reason:"You have enough mixed materials for a larger project.",
 
 steps:[
-
-"Clean all bottles and cartons.",
-
-"Cut openings into the plastic bottles.",
-
-"Use cartons to create plant labels.",
-
-"Add soil and plants.",
-
-"Arrange the bottles into a vertical garden."
-
+"Clean all materials.",
+"Cut openings into bottles.",
+"Use cartons for plant labels.",
+"Add soil.",
+"Plant seeds."
 ],
 
-impact:
-"Reuses multiple waste materials and creates a sustainable garden."
+impact:"Reuses different waste types together."
 
 });
 
@@ -200,7 +158,7 @@ impact:
 
 
 
-// PROJECT 2: Vertical Garden
+// Plastic projects
 
 if(plastic >= 5){
 
@@ -210,36 +168,26 @@ name:"Vertical Bottle Garden",
 
 score:85,
 
-materials:
-"5 Plastic Bottles",
+materials:"5 Plastic Bottles",
 
-difficulty:
-"Medium ⭐⭐",
+difficulty:"Medium ⭐⭐",
+
+reason:"You have enough bottles for a multi-bottle project.",
 
 steps:[
-
-"Wash plastic bottles.",
-
-"Cut a planting area.",
-
+"Wash bottles.",
+"Create planting openings.",
 "Make drainage holes.",
-
 "Add soil.",
-
-"Plant seeds."
-
+"Grow plants."
 ],
 
-impact:
-"Prevents plastic bottles from becoming waste."
+impact:"Prevents plastic waste from entering landfills."
 
 });
 
 }
 
-
-
-// PROJECT 3: Plant Pot
 
 if(plastic >= 1){
 
@@ -249,28 +197,21 @@ name:"Bottle Plant Pot",
 
 score:60,
 
-materials:
-"1 Plastic Bottle",
+materials:"1 Plastic Bottle",
 
-difficulty:
-"Easy ⭐",
+difficulty:"Easy ⭐",
+
+reason:"A simple project suitable for small quantities.",
 
 steps:[
-
 "Clean the bottle.",
-
-"Cut the bottle in half.",
-
-"Create drainage holes.",
-
-"Add soil.",
-
-"Plant a small plant."
-
+"Cut it safely.",
+"Add drainage holes.",
+"Fill with soil.",
+"Plant seeds."
 ],
 
-impact:
-"Gives plastic bottles a second life."
+impact:"Gives plastic bottles a second use."
 
 });
 
@@ -278,38 +219,30 @@ impact:
 
 
 
-// PROJECT 4: Storage Box
+// Carton projects
 
-if(cartons >= 2){
+if(carton >= 2){
 
 projects.push({
 
-name:"Milk Carton Storage Box",
+name:"Milk Carton Organizer",
 
 score:75,
 
-materials:
-"2 Milk Cartons",
+materials:"2 Milk Cartons",
 
-difficulty:
-"Easy ⭐",
+difficulty:"Easy ⭐",
+
+reason:"You have enough cartons to create storage.",
 
 steps:[
-
-"Clean the cartons.",
-
-"Cut the top sections.",
-
+"Clean cartons.",
+"Cut the tops.",
 "Join cartons together.",
-
-"Decorate the outside.",
-
-"Use as storage."
-
+"Decorate."
 ],
 
-impact:
-"Turns packaging waste into reusable storage."
+impact:"Turns packaging waste into useful storage."
 
 });
 
@@ -317,38 +250,30 @@ impact:
 
 
 
-// PROJECT 5: Cardboard Organizer
+// Cardboard
 
 if(cardboard >= 1){
 
 projects.push({
 
-name:"Cardboard Desk Organizer",
+name:"Cardboard Organizer",
 
 score:70,
 
-materials:
-"Cardboard",
+materials:"Cardboard",
 
-difficulty:
-"Easy ⭐",
+difficulty:"Easy ⭐",
+
+reason:"Cardboard can easily be reshaped.",
 
 steps:[
-
-"Measure cardboard pieces.",
-
-"Cut sections.",
-
-"Glue pieces together.",
-
-"Create compartments.",
-
-"Decorate."
-
+"Measure cardboard.",
+"Cut pieces.",
+"Glue sections.",
+"Create compartments."
 ],
 
-impact:
-"Reduces cardboard waste."
+impact:"Extends the life of cardboard."
 
 });
 
@@ -356,36 +281,30 @@ impact:
 
 
 
-// PROJECT 6: Can Holder
+// Cans
 
 if(cans >= 3){
 
 projects.push({
 
-name:"Aluminum Can Pen Holder",
+name:"Can Pen Holder",
 
 score:65,
 
-materials:
-"3 Aluminum Cans",
+materials:"3 Aluminum Cans",
 
-difficulty:
-"Easy ⭐",
+difficulty:"Easy ⭐",
+
+reason:"Enough cans available for a reusable holder.",
 
 steps:[
-
-"Wash cans.",
-
-"Remove dangerous edges.",
-
-"Paint the cans.",
-
-"Use them as holders."
-
+"Clean cans.",
+"Remove unsafe edges.",
+"Decorate.",
+"Use as storage."
 ],
 
-impact:
-"Recycles aluminum materials."
+impact:"Recycles aluminum waste."
 
 });
 
@@ -393,88 +312,100 @@ impact:
 
 
 
-
-// AI SELECTS BEST MATCH
-
-if(projects.length > 0){
-
-
+// Sort by AI score
 
 projects.sort(function(a,b){
 
-return b.score - a.score;
+return b.score-a.score;
 
 });
 
 
 
-let best =
-projects[0];
+
+// Display multiple results
+
+if(projects.length > 0){
 
 
-
-result.innerHTML = `
-
+let output = `
 
 <h2>
-🤖 TrashForm AI Recommendation
+🤖 TrashForm AI Results
 </h2>
 
+`;
+
+
+
+projects.forEach(function(project,index){
+
+
+let medal =
+index==0 ? "🥇" :
+index==1 ? "🥈" :
+index==2 ? "🥉" :
+"♻️";
+
+
+
+output += `
+
+<div class="project">
+
+<h2>
+${medal} ${project.name}
+</h2>
+
+<p>
+<b>AI Match:</b> ${project.score}%
+</p>
+
+
+<p>
+<b>Materials:</b> ${project.materials}
+</p>
+
+
+<p>
+<b>Difficulty:</b> ${project.difficulty}
+</p>
+
+
+<p>
+<b>Why recommended:</b> ${project.reason}
+</p>
+
 
 <h3>
-${best.name}
+Steps:
 </h3>
-
-
-<p>
-<b>AI Match Score:</b>
-${best.score}%
-</p>
-
-
-<p>
-<b>Materials:</b>
-${best.materials}
-</p>
-
-
-<p>
-<b>Difficulty:</b>
-${best.difficulty}
-</p>
-
-
-
-<h3>
-How To Make It:
-</h3>
-
 
 <ol>
 
-${best.steps.map(function(step){
+${project.steps.map(function(step){
 
-return "<li>" + step + "</li>";
+return "<li>"+step+"</li>";
 
 }).join("")}
 
 </ol>
 
 
-
 <p>
-
-<b>
-Environmental Impact:
-</b>
-
-${best.impact}
-
+<b>Environmental Impact:</b>
+${project.impact}
 </p>
 
 
+</div>
+
 `;
 
+});
+
+
+result.innerHTML = output;
 
 
 }
@@ -484,12 +415,10 @@ else{
 
 result.innerHTML = `
 
-<h2>
-🤖 TrashForm AI
-</h2>
+<h2>🤖 TrashForm AI</h2>
 
 <p>
-Add more waste materials so I can generate a project idea!
+I need more materials to generate ideas.
 </p>
 
 `;
@@ -497,9 +426,7 @@ Add more waste materials so I can generate a project idea!
 }
 
 
-
 }
-
 
 
 </script>
