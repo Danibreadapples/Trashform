@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrashForm</title>
+</head>
+<body>
+    <h1>TrashForm</h1>
+    <p>Turn waste into useful products.</p>
+
+    <input type="text" id="material" placeholder="Enter a material">
+
+    <button onclick="findIdeas()">Search</button>
+
+    <p id="result"></p>
+
+    <script>
+        function findIdeas() {
+            let material = document.getElementById("material").value.toLowerCase();
+            let result = document.getElementById("result");
+
+            if(material === "plastic bottle") {
+                result.innerHTML = "Plant Pot, Bird Feeder, Phone Stand";
+            } else if(material === "milk carton") {
+                result.innerHTML = "Wallet, Pencil Holder, Storage Box";
+            } else {
+                result.innerHTML = "No ideas found.";
+            }
+        }
+    </script>
+</body>
+</html>
