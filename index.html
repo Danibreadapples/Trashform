@@ -5,6 +5,17 @@
 
 <title>TrashForm</title>
 
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- AI IMAGE RECOGNITION -->
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
 
 <style>
 
@@ -155,6 +166,38 @@ margin-top:20px;
 
 }
 
+
+/* CAMERA */
+
+#camera {
+
+width:100%;
+max-width:400px;
+border-radius:15px;
+display:none;
+
+}
+
+
+#photoCanvas {
+
+display:none;
+width:100%;
+max-width:400px;
+border-radius:15px;
+
+}
+
+
+#aiResult {
+
+margin-top:15px;
+font-size:18px;
+font-weight:bold;
+
+}
+
+
 </style>
 
 </head>
@@ -175,10 +218,6 @@ Transform waste into useful creations
 </p>
 
 </header>
-
-
-
-
 
 <nav>
 
