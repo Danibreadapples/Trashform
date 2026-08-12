@@ -1944,7 +1944,160 @@ displayCommunity();
 // START APP
 
 updateUI();
+// =============================
+// CAMERA SCANNER
+// =============================
 
+let cameraStream = null;
+
+
+async function startCamera(){
+
+try{
+
+cameraStream =
+await navigator.mediaDevices.getUserMedia({
+
+video:{
+facingMode:"environment"
+},
+
+audio:false
+
+});
+
+
+let camera =
+document.getElementById("camera");
+
+
+camera.srcObject =
+cameraStream;
+
+
+camera.style.display="block";
+
+
+document.getElementById(
+"takePhotoButton"
+).style.display="inline-block";
+
+
+}
+catch(error){
+
+alert(
+"Unable to access the camera. Please allow camera permission and try again."
+);
+
+console.error(error);
+
+}
+
+}
+
+
+
+// =============================
+// TAKE PHOTO
+// =============================
+
+function takePhoto(){
+
+let camera =
+document.getElementById("camera");
+
+
+let canvas =
+document.getElementById("photoCanvas");
+
+
+let context =
+canvas.getContext("2d");
+
+
+context.drawImage(
+camera,
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+
+canvas.style.display="block";
+
+
+document.getElementById(
+"scanControls"
+).style.display="block";
+
+
+
+// Stop camera after taking photo
+
+if(cameraStream){
+
+cameraStream
+.getTracks()
+.forEach(function(track){
+
+track.stop();
+
+});
+
+cameraStream=null;
+
+}
+
+}
+
+
+
+// =============================
+// USE SCANNED MATERIAL
+// =============================
+
+function useScannedMaterial(){
+
+let material =
+document.getElementById(
+"scannedMaterial"
+).value;
+
+
+let input =
+document.getElementById(material);
+
+
+let current =
+Number(input.value) || 0;
+
+
+input.value =
+current + 1;
+
+
+document.getElementById(
+"scanControls"
+).style.display="none";
+
+
+document.getElementById(
+"camera"
+).style.display="none";
+
+
+document.getElementById(
+"takePhotoButton"
+).style.display="none";
+
+
+alert(
+"Material added! You can now find an upcycling idea."
+);
+
+}
 
 </script>
 
