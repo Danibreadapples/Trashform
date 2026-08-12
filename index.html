@@ -9,194 +9,144 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <!-- AI IMAGE RECOGNITION -->
-
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-
 
 <style>
 
 body {
-
-font-family: Arial, sans-serif;
-margin:0;
-background:#eef7ee;
-
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #eef7ee;
 }
-
 
 header {
-
-background:#2e8b57;
-color:white;
-padding:25px;
-text-align:center;
-
+    background: #2e8b57;
+    color: white;
+    padding: 25px;
+    text-align: center;
 }
-
 
 nav {
-
-display:flex;
-justify-content:center;
-gap:10px;
-background:white;
-padding:15px;
-flex-wrap:wrap;
-
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background: white;
+    padding: 15px;
+    flex-wrap: wrap;
 }
-
 
 nav button {
-
-background:#2e8b57;
-color:white;
-border:none;
-padding:12px 18px;
-border-radius:10px;
-cursor:pointer;
-
+    background: #2e8b57;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
 }
-
 
 nav button:hover {
-
-background:#246b45;
-
+    background: #246b45;
 }
-
 
 .page {
-
-display:none;
-max-width:900px;
-margin:auto;
-padding:25px;
-
+    display: none;
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
 }
-
 
 .active {
-
-display:block;
-
+    display: block;
 }
-
 
 .card {
-
-background:white;
-padding:20px;
-margin-top:20px;
-border-radius:15px;
-box-shadow:0 3px 8px #ccc;
-
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 8px #ccc;
 }
-
 
 input {
-
-width:100px;
-padding:8px;
-margin:5px;
-border-radius:6px;
-border:1px solid #aaa;
-
+    width: 100px;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
 }
-
 
 .mainButton {
-
-background:#2e8b57;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-cursor:pointer;
-margin:5px;
-
+    background: #2e8b57;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
 }
-
 
 .mainButton:hover {
-
-background:#246b45;
-
+    background: #246b45;
 }
-
 
 .project {
-
-background:white;
-padding:20px;
-margin-top:20px;
-border-radius:15px;
-border:1px solid #ddd;
-
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
 }
 
-
-h1,h2,h3 {
-
-color:#2e8b57;
-
+h1, h2, h3 {
+    color: #2e8b57;
 }
-
 
 header h1 {
-
-color:white;
-
+    color: white;
 }
-
 
 ul {
-
-line-height:1.8;
-
+    line-height: 1.8;
 }
-
 
 .resultBox {
-
-margin-top:20px;
-
+    margin-top: 20px;
 }
-
 
 /* CAMERA */
 
 #camera {
-
-width:100%;
-max-width:400px;
-border-radius:15px;
-display:none;
-
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    display: none;
+    background: black;
 }
-
 
 #photoCanvas {
-
-display:none;
-width:100%;
-max-width:400px;
-border-radius:15px;
-
+    display: none;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
 }
-
 
 #aiResult {
-
-margin-top:15px;
-font-size:18px;
-font-weight:bold;
-
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
+#aiConfidence {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#modelStatus {
+    margin-top: 10px;
+    font-size: 14px;
+}
 
 </style>
 
@@ -212,202 +162,172 @@ font-weight:bold;
 ♻️ TrashForm
 </h1>
 
-
 <p>
 Transform waste into useful creations
 </p>
 
 </header>
 
-<nav>
 
+<nav>
 
 <button onclick="openPage('home')">
 Home
 </button>
 
-
 <button onclick="openPage('create')">
 Create
 </button>
-
 
 <button onclick="openPage('rewards')">
 Rewards
 </button>
 
-
 <button onclick="openPage('collection')">
 Collection
 </button>
-
 
 <button onclick="openPage('progress')">
 Progress
 </button>
 
-
 <button onclick="openPage('community')">
 Community
 </button>
 
-
 </nav>
 
 
-
-
+<!-- HOME PAGE -->
 
 <div id="home" class="page active">
 
-
 <div class="card">
-
 
 <h2>
 Welcome to TrashForm
 </h2>
 
-
 <p>
 Turn waste materials into creative and useful products.
 </p>
-
 
 <p>
 Earn Eco Points, collect plants, and build your sustainability journey.
 </p>
 
+</div>
 
 </div>
 
 
-</div>
 <!-- CREATE PAGE -->
 
 <div id="create" class="page">
 
-
 <div class="card">
-
 
 <h2>
 Create Upcycling Ideas
 </h2>
-
 
 <p>
 Enter your available waste materials:
 </p>
 
 
-
 <label>
 Plastic Bottles:
 </label>
 
-<input 
+<input
 id="plastic"
 type="number"
 min="0"
 value="0">
 
-
 <br>
-
 
 
 <label>
 Milk Cartons:
 </label>
 
-<input 
+<input
 id="carton"
 type="number"
 min="0"
 value="0">
 
-
 <br>
-
 
 
 <label>
 Cardboard:
 </label>
 
-<input 
+<input
 id="cardboard"
 type="number"
 min="0"
 value="0">
 
-
 <br>
-
 
 
 <label>
 Aluminum Cans:
 </label>
 
-<input 
+<input
 id="cans"
 type="number"
 min="0"
 value="0">
 
-
 <br>
-
 
 
 <label>
 Glass Bottles:
 </label>
 
-<input 
+<input
 id="glass"
 type="number"
 min="0"
 value="0">
 
-
 <br>
-
 
 
 <label>
 Old Clothes:
 </label>
 
-<input 
+<input
 id="clothes"
 type="number"
 min="0"
 value="0">
 
-
 <br>
-
 
 
 <label>
 Egg Cartons:
 </label>
 
-<input 
+<input
 id="eggs"
 type="number"
 min="0"
 value="0">
 
-
 <br><br>
 
 
-
-<button 
+<button
 class="mainButton"
 onclick="findIdeas()">
 
@@ -416,21 +336,33 @@ Find Ideas (+10 Eco Points)
 </button>
 
 
-
-<button 
+<button
 class="mainButton"
 onclick="randomIdea()">
 
 🎲 Inspire Me
 
 </button>
+
+</div>
+
+
+<!-- AI CAMERA -->
+
 <div class="card">
 
-<h3>📷 Scan Waste</h3>
+<h3>
+📷 Scan Waste
+</h3>
 
 <p>
-Take a photo of a waste item and add it to your materials.
+Take a photo of a waste item and let TrashForm identify it automatically.
 </p>
+
+<p id="modelStatus">
+Loading AI model...
+</p>
+
 
 <button
 class="mainButton"
@@ -440,19 +372,31 @@ Open Camera
 
 </button>
 
+
+<button
+id="stopCameraButton"
+class="mainButton"
+onclick="stopCamera()"
+style="display:none;">
+
+Stop Camera
+
+</button>
+
+
 <br><br>
+
 
 <video
 id="camera"
-width="300"
-height="220"
 autoplay
-playsinline
-style="display:none; border-radius:10px;">
+playsinline>
 
 </video>
 
+
 <br>
+
 
 <button
 id="takePhotoButton"
@@ -464,19 +408,35 @@ Take Photo
 
 </button>
 
+
 <canvas
-id="photoCanvas"
-width="300"
-height="220"
-style="display:none; border-radius:10px;">
+id="photoCanvas">
 
 </canvas>
 
-<br>
 
-<div id="scanControls" style="display:none;">
+<div id="aiResult">
 
-<p><b>What material is in the photo?</b></p>
+</div>
+
+
+<div id="aiConfidence">
+
+</div>
+
+
+<!-- MANUAL BACKUP -->
+
+<div
+id="scanControls"
+style="display:none;">
+
+<p>
+<b>
+If the AI is incorrect, choose the material manually:
+</b>
+</p>
+
 
 <select id="scannedMaterial">
 
@@ -510,7 +470,9 @@ Egg Carton
 
 </select>
 
+
 <br><br>
+
 
 <button
 class="mainButton"
@@ -525,35 +487,24 @@ Use This Material
 </div>
 
 
-</div>
-
-
-
-<div id="result" class="resultBox"></div>
-
-
+<div
+id="result"
+class="resultBox">
 
 </div>
 
-
-
-
+</div>
 
 
 <!-- REWARDS PAGE -->
 
-
 <div id="rewards" class="page">
 
-
 <div class="card">
-
 
 <h2>
 🌱 Eco Rewards
 </h2>
-
-
 
 <h3>
 
@@ -565,16 +516,10 @@ Eco Points:
 
 </h3>
 
-
-
 <p>
-
 Roll Cost:
 100 Eco Points
-
 </p>
-
-
 
 <button
 class="mainButton"
@@ -584,38 +529,24 @@ onclick="rollPlant()">
 
 </button>
 
-
-
 <div id="rollResult">
 
 </div>
 
-
-
 </div>
 
-
 </div>
-
-
-
-
-
 
 
 <!-- COLLECTION PAGE -->
 
-
 <div id="collection" class="page">
 
-
 <div class="card">
-
 
 <h2>
 🌿 My Plant Collection
 </h2>
-
 
 <div id="plantCollection">
 
@@ -623,31 +554,20 @@ No plants collected yet.
 
 </div>
 
-
 </div>
 
-
 </div>
-
-
-
-
-
 
 
 <!-- PROGRESS PAGE -->
 
-
 <div id="progress" class="page">
 
-
 <div class="card">
-
 
 <h2>
 📈 My Progress
 </h2>
-
 
 <p>
 
@@ -658,7 +578,6 @@ Projects Created:
 </span>
 
 </p>
-
 
 
 <p>
@@ -672,7 +591,6 @@ Plants Owned:
 </p>
 
 
-
 <p>
 
 Total Eco Points:
@@ -683,41 +601,27 @@ Total Eco Points:
 
 </p>
 
-
-
 </div>
 
-
 </div>
-
-
-
-
-
 
 
 <!-- COMMUNITY PAGE -->
 
-
 <div id="community" class="page">
 
-
 <div class="card">
-
 
 <h2>
 👥 Community Projects
 </h2>
-
-
 
 <p>
 Share your creations with other users.
 </p>
 
 
-
-<input 
+<input
 id="communityName"
 placeholder="Your name">
 
@@ -725,7 +629,7 @@ placeholder="Your name">
 <br>
 
 
-<input 
+<input
 id="communityProject"
 placeholder="Project name">
 
@@ -733,7 +637,7 @@ placeholder="Project name">
 <br>
 
 
-<input 
+<input
 id="communityText"
 placeholder="Description">
 
@@ -750,27 +654,109 @@ Post Project
 </button>
 
 
-
 <div id="communityPosts">
 
 </div>
 
-
+</div>
 
 </div>
 
 
-</div>
 <script>
 
+/* =====================================================
+   AI MODEL SETTINGS
+===================================================== */
 
-// =============================
-// UPCYCLING PROJECT DATABASE
-// =============================
+const MODEL_URL =
+"https://teachablemachine.withgoogle.com/models/Ekk3rr_hF/";
 
+let wasteModel = null;
+let cameraStream = null;
+
+
+/* =====================================================
+   START AI MODEL
+===================================================== */
+
+window.addEventListener("load", function() {
+
+loadWasteModel();
+
+updateUI();
+
+});
+
+
+async function loadWasteModel() {
+
+try {
+
+document.getElementById("modelStatus").innerText =
+"Loading AI model...";
+
+const modelURL =
+MODEL_URL + "model.json";
+
+const metadataURL =
+MODEL_URL + "metadata.json";
+
+
+wasteModel =
+await tmImage.load(
+modelURL,
+metadataURL
+);
+
+
+document.getElementById("modelStatus").innerText =
+"✅ AI model ready!";
+
+
+}
+
+catch(error) {
+
+console.error(error);
+
+document.getElementById("modelStatus").innerText =
+"❌ AI model could not load.";
+
+}
+
+}
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function openPage(page) {
+
+let pages =
+document.querySelectorAll(".page");
+
+
+pages.forEach(function(p) {
+
+p.classList.remove("active");
+
+});
+
+
+document.getElementById(page)
+.classList.add("active");
+
+
+updateUI();
+
+}
+/* =====================================================
+   UPCYCLING PROJECT DATABASE
+===================================================== */
 
 const projects = [
-
 
 {
 name:"Eco Garden Station",
@@ -807,7 +793,6 @@ impact:
 },
 
 
-
 {
 name:"Vertical Bottle Garden",
 materials:"5 Plastic Bottles",
@@ -839,7 +824,6 @@ reason:
 impact:
 "Reduces plastic waste."
 },
-
 
 
 {
@@ -875,8 +859,6 @@ impact:
 },
 
 
-
-
 {
 name:"Milk Carton Organizer",
 materials:"2 Milk Cartons",
@@ -907,8 +889,6 @@ reason:
 impact:
 "Transforms packaging waste."
 },
-
-
 
 
 {
@@ -943,8 +923,6 @@ impact:
 },
 
 
-
-
 {
 name:"Aluminum Can Pen Holder",
 materials:"3 Aluminum Cans",
@@ -974,8 +952,6 @@ reason:
 impact:
 "Recycles aluminum."
 },
-
-
 
 
 {
@@ -1009,8 +985,6 @@ impact:
 },
 
 
-
-
 {
 name:"Reusable Cloth Bag",
 materials:"Old Clothes",
@@ -1040,8 +1014,6 @@ reason:
 impact:
 "Reduces textile waste."
 },
-
-
 
 
 {
@@ -1074,166 +1046,260 @@ impact:
 "Turns packaging into gardening tools."
 }
 
-
 ];
 
 
-
-
-
-// =============================
-// PLANT ROLL DATABASE
-// =============================
+/* =====================================================
+   PLANT DATABASE
+===================================================== */
 
 const plants = [
 
-{ name:"Mint Plant", emoji:"🌿", rarity:"Common", value:10 },
-{ name:"Grass", emoji:"🌱", rarity:"Common", value:10 },
-{ name:"Dandelion", emoji:"🌾", rarity:"Common", value:10 },
-{ name:"Algae", emoji:"🟢", rarity:"Common", value:10 },
-{ name:"Sunflower", emoji:"🌻", rarity:"Common", value:10 },
+{
+name:"Mint Plant",
+emoji:"🌿",
+rarity:"Common",
+value:10
+},
 
-{ name:"Rose", emoji:"🌹", rarity:"Uncommon", value:25 },
-{ name:"Coconut", emoji:"🥥", rarity:"Uncommon", value:25 },
-{ name:"Lavender", emoji:"💜", rarity:"Uncommon", value:25 },
-{ name:"Aloe Vera", emoji:"🌵", rarity:"Uncommon", value:25 },
+{
+name:"Grass",
+emoji:"🌱",
+rarity:"Common",
+value:10
+},
 
-{ name:"Watermelon", emoji:"🍉", rarity:"Rare", value:75 },
-{ name:"Apple Tree", emoji:"🍎", rarity:"Rare", value:75 },
-{ name:"Orange Tree", emoji:"🍊", rarity:"Rare", value:75 },
-{ name:"Blueberry Plant", emoji:"🫐", rarity:"Rare", value:75 },
+{
+name:"Dandelion",
+emoji:"🌾",
+rarity:"Common",
+value:10
+},
 
-{ name:"Orchid", emoji:"🌸", rarity:"Epic", value:250 },
-{ name:"Tulip", emoji:"🌷", rarity:"Epic", value:250 },
-{ name:"Bamboo", emoji:"🎍", rarity:"Epic", value:250 },
-{ name:"Bonsai Tree", emoji:"🌳", rarity:"Epic", value:250 },
+{
+name:"Algae",
+emoji:"🟢",
+rarity:"Common",
+value:10
+},
 
-{ name:"Hibiscus", emoji:"🌺", rarity:"Legendary", value:500 },
-{ name:"Rafflesia", emoji:"🌼", rarity:"Legendary", value:500 },
-{ name:"Dragon Fruit Plant", emoji:"🐉", rarity:"Legendary", value:500 },
-{ name:"Sakura", emoji:"🌸", rarity:"Legendary", value:500 },
+{
+name:"Sunflower",
+emoji:"🌻",
+rarity:"Common",
+value:10
+},
 
+{
+name:"Rose",
+emoji:"🌹",
+rarity:"Uncommon",
+value:25
+},
 
-{ name:"Giant Beanstalk", emoji:"🌿", rarity:"Mythic", value:1000 },
-{ name:"Golden Potato", emoji:"🥔", rarity:"Mythic", value:1000 },
-{ name:"Ethanol Plant", emoji:"⚗️", rarity:"Mythic", value:1000 },
-{ name:"Venus Flytrap", emoji:"🪰", rarity:"Mythic", value:1000 },
+{
+name:"Coconut",
+emoji:"🥥",
+rarity:"Uncommon",
+value:25
+},
+
+{
+name:"Lavender",
+emoji:"💜",
+rarity:"Uncommon",
+value:25
+},
+
+{
+name:"Aloe Vera",
+emoji:"🌵",
+rarity:"Uncommon",
+value:25
+},
+
+{
+name:"Watermelon",
+emoji:"🍉",
+rarity:"Rare",
+value:75
+},
+
+{
+name:"Apple Tree",
+emoji:"🍎",
+rarity:"Rare",
+value:75
+},
+
+{
+name:"Orange Tree",
+emoji:"🍊",
+rarity:"Rare",
+value:75
+},
+
+{
+name:"Blueberry Plant",
+emoji:"🫐",
+rarity:"Rare",
+value:75
+},
+
+{
+name:"Orchid",
+emoji:"🌸",
+rarity:"Epic",
+value:250
+},
+
+{
+name:"Tulip",
+emoji:"🌷",
+rarity:"Epic",
+value:250
+},
+
+{
+name:"Bamboo",
+emoji:"🎍",
+rarity:"Epic",
+value:250
+},
+
+{
+name:"Bonsai Tree",
+emoji:"🌳",
+rarity:"Epic",
+value:250
+},
+
+{
+name:"Hibiscus",
+emoji:"🌺",
+rarity:"Legendary",
+value:500
+},
+
+{
+name:"Rafflesia",
+emoji:"🌼",
+rarity:"Legendary",
+value:500
+},
+
+{
+name:"Dragon Fruit Plant",
+emoji:"🐉",
+rarity:"Legendary",
+value:500
+},
+
+{
+name:"Sakura",
+emoji:"🌸",
+rarity:"Legendary",
+value:500
+},
+
+{
+name:"Giant Beanstalk",
+emoji:"🌿",
+rarity:"Mythic",
+value:1000
+},
+
+{
+name:"Golden Potato",
+emoji:"🥔",
+rarity:"Mythic",
+value:1000
+},
+
+{
+name:"Ethanol Plant",
+emoji:"⚗️",
+rarity:"Mythic",
+value:1000
+},
+
+{
+name:"Venus Flytrap",
+emoji:"🪰",
+rarity:"Mythic",
+value:1000
+}
 
 ];
 
 
-function openPage(page){
+/* =====================================================
+   FIND PROJECT IDEAS
+===================================================== */
 
-
-let pages =
-document.querySelectorAll(".page");
-
-
-pages.forEach(function(p){
-
-p.classList.remove("active");
-
-});
-
-
-document.getElementById(page)
-.classList.add("active");
-
-
-updateUI();
-
-
-}
-
-
-
-
-// =============================
-// FIND PROJECT IDEAS
-// =============================
-
-
-function findIdeas(){
-
+function findIdeas() {
 
 let materials = {
-
 
 plastic:
 Number(document.getElementById("plastic").value),
 
-
 carton:
 Number(document.getElementById("carton").value),
-
 
 cardboard:
 Number(document.getElementById("cardboard").value),
 
-
 cans:
 Number(document.getElementById("cans").value),
-
 
 glass:
 Number(document.getElementById("glass").value),
 
-
 clothes:
 Number(document.getElementById("clothes").value),
-
 
 eggs:
 Number(document.getElementById("eggs").value)
 
-
 };
 
 
-
-let results=[];
-
+let results = [];
 
 
-projects.forEach(function(project){
+projects.forEach(function(project) {
+
+let works = true;
 
 
-let works=true;
+for(let item in project.required) {
 
+if(
+materials[item] <
+project.required[item]
+) {
 
-
-for(let item in project.required){
-
-
-if(materials[item] < project.required[item]){
-
-works=false;
+works = false;
 
 }
 
 }
 
 
-
-if(works){
+if(works) {
 
 results.push(project);
 
 }
 
-
 });
-
-
-
 
 
 let points =
 Number(localStorage.getItem("ecoPoints")) || 0;
 
-
 points += 10;
-
 
 localStorage.setItem(
 "ecoPoints",
@@ -1241,13 +1307,10 @@ points
 );
 
 
-
 let searches =
 Number(localStorage.getItem("searches")) || 0;
 
-
 searches++;
-
 
 localStorage.setItem(
 "searches",
@@ -1255,17 +1318,12 @@ searches
 );
 
 
+let output = "";
 
 
+if(results.length === 0) {
 
-let output="";
-
-
-
-if(results.length===0){
-
-
-output=`
+output = `
 
 <div class="project">
 
@@ -1277,18 +1335,20 @@ No projects found
 Try adding more materials.
 </p>
 
+<p>
++10 Eco Points earned!
+</p>
+
 </div>
 
 `;
 
-
-
 }
 
-else{
 
+else {
 
-output=`
+output = `
 
 <div class="project">
 
@@ -1305,196 +1365,144 @@ Recommended Projects
 `;
 
 
-
-results.forEach(function(project,index){
-
-
+results.forEach(function(project,index) {
 
 output += `
 
-
 <div class="project">
 
-
 <h2>
-${index+1}. ${project.name}
+${index + 1}. ${project.name}
 </h2>
-
-
 
 <p>
 <b>Match Score:</b>
 ${project.score}%
 </p>
 
-
 <p>
 <b>Materials:</b>
 ${project.materials}
 </p>
-
 
 <p>
 <b>Difficulty:</b>
 ${project.difficulty}
 </p>
 
-
-
 <h3>
 Tools Needed
 </h3>
 
-
 <ul>
 
-${project.tools.map(function(x){
+${project.tools.map(function(x) {
 
-return "<li>"+x+"</li>";
+return "<li>" + x + "</li>";
 
 }).join("")}
 
 </ul>
 
-
-
-
 <h3>
 Steps
 </h3>
 
-
 <ol>
 
-${project.steps.map(function(x){
+${project.steps.map(function(x) {
 
-return "<li>"+x+"</li>";
+return "<li>" + x + "</li>";
 
 }).join("")}
 
 </ol>
-
-
-
 
 <p>
 <b>Why:</b>
 ${project.reason}
 </p>
 
-
-
 <p>
 <b>Impact:</b>
 ${project.impact}
 </p>
 
-
-
 </div>
-
 
 `;
 
-
-
 });
 
-
 }
-
 
 
 document.getElementById("result")
-.innerHTML=output;
-
+.innerHTML = output;
 
 updateUI();
-
 
 }
 
 
+/* =====================================================
+   RANDOM INSPIRATION
+===================================================== */
 
-
-
-
-
-// =============================
-// RANDOM INSPIRATION
-// =============================
-
-
-function randomIdea(){
-
+function randomIdea() {
 
 let random =
-projects[Math.floor(Math.random()*projects.length)];
+projects[
+Math.floor(
+Math.random() * projects.length
+)
+];
 
 
-
-document.getElementById("result").innerHTML=`
+document.getElementById("result").innerHTML = `
 
 <div class="project">
-
 
 <h2>
 🎲 Inspiration
 </h2>
 
-
 <h3>
 ${random.name}
 </h3>
 
-
 <p>
-
 <b>Materials:</b>
 ${random.materials}
-
 </p>
 
-
 <p>
-
 <b>Difficulty:</b>
 ${random.difficulty}
-
 </p>
-
 
 <p>
-
 ${random.reason}
-
 </p>
-
 
 </div>
 
 `;
 
-
 }
 
 
+/* =====================================================
+   PLANT ROLL
+===================================================== */
 
-
-
-
-
-// =============================
-// PLANT ROLL SYSTEM
-// =============================
-
-
-function rollPlant(){
+function rollPlant() {
 
 let points =
 Number(localStorage.getItem("ecoPoints")) || 0;
 
-if(points < 100){
+
+if(points < 100) {
 
 document.getElementById("rollResult").innerHTML =
 "<p>Not enough Eco Points!</p>";
@@ -1503,6 +1511,7 @@ return;
 
 }
 
+
 points -= 100;
 
 localStorage.setItem(
@@ -1510,62 +1519,81 @@ localStorage.setItem(
 points
 );
 
-let roll = Math.random() * 100;
+
+let roll =
+Math.random() * 100;
+
 
 let rarity;
 
-if(roll < 50){
+
+if(roll < 50) {
 
 rarity = "Common";
 
 }
-else if(roll < 75){
+
+else if(roll < 75) {
 
 rarity = "Uncommon";
 
 }
-else if(roll < 87.5){
+
+else if(roll < 87.5) {
 
 rarity = "Rare";
 
 }
-else if(roll < 95){
+
+else if(roll < 95) {
 
 rarity = "Epic";
 
 }
-else if(roll < 99){
+
+else if(roll < 99) {
 
 rarity = "Legendary";
 
 }
-else{
+
+else {
 
 rarity = "Mythic";
 
 }
 
+
 let pool =
-plants.filter(
-p => p.rarity === rarity
-);
+plants.filter(function(p) {
+
+return p.rarity === rarity;
+
+});
+
 
 let selected =
-pool[Math.floor(
+pool[
+Math.floor(
 Math.random() * pool.length
-)];
+)
+];
+
 
 let collection =
 JSON.parse(
 localStorage.getItem("collection")
 ) || [];
 
+
 collection.push(selected);
+
 
 localStorage.setItem(
 "collection",
 JSON.stringify(collection)
 );
+
 
 document.getElementById("rollResult").innerHTML = `
 
@@ -1593,16 +1621,17 @@ ${selected.value} Eco Points
 
 `;
 
+
 updateUI();
 
 }
-// =============================
-// COLLECTION SYSTEM
-// =============================
 
 
-function showCollection(){
+/* =====================================================
+   COLLECTION
+===================================================== */
 
+function showCollection() {
 
 let collection =
 JSON.parse(
@@ -1610,56 +1639,42 @@ localStorage.getItem("collection")
 ) || [];
 
 
-
 let box =
 document.getElementById("plantCollection");
 
 
-
-if(collection.length===0){
-
+if(collection.length === 0) {
 
 box.innerHTML =
 "No plants collected yet.";
 
-
 return;
-
 
 }
 
 
-
-let output="";
-
+let output = "";
 
 
-collection.forEach(function(plant,index){
-
-
+collection.forEach(function(plant,index) {
 
 output += `
 
 <div class="project">
 
-
 <h3>
 ${plant.emoji} ${plant.name}
 </h3>
-
 
 <p>
 <b>Rarity:</b>
 ${plant.rarity}
 </p>
 
-
 <p>
 <b>Value:</b>
 ${plant.value} Eco Points
 </p>
-
-
 
 <button
 class="mainButton"
@@ -1669,38 +1684,23 @@ Sell
 
 </button>
 
-
-
 </div>
 
 `;
 
-
-
 });
 
 
-
-box.innerHTML=output;
-
-
+box.innerHTML = output;
 
 }
 
 
+/* =====================================================
+   SELL PLANTS
+===================================================== */
 
-
-
-
-
-// =============================
-// SELL PLANTS
-// =============================
-
-
-function sellPlant(index){
-
-
+function sellPlant(index) {
 
 let collection =
 JSON.parse(
@@ -1708,20 +1708,20 @@ localStorage.getItem("collection")
 ) || [];
 
 
-
 let plant =
 collection[index];
 
 
+if(!plant) {
+return;
+}
+
 
 let points =
-Number(localStorage.getItem("ecoPoints"))
-||0;
-
+Number(localStorage.getItem("ecoPoints")) || 0;
 
 
 points += plant.value;
-
 
 
 localStorage.setItem(
@@ -1730,9 +1730,7 @@ points
 );
 
 
-
 collection.splice(index,1);
-
 
 
 localStorage.setItem(
@@ -1741,57 +1739,50 @@ JSON.stringify(collection)
 );
 
 
-
 showCollection();
 
 updateUI();
 
-
 }
 
 
+/* =====================================================
+   COMMUNITY
+===================================================== */
 
-
-
-
-
-// =============================
-// COMMUNITY SYSTEM
-// =============================
-
-
-function addCommunity(){
-
-
+function addCommunity() {
 
 let name =
-document.getElementById("communityName").value;
-
+document.getElementById(
+"communityName"
+).value.trim();
 
 
 let project =
-document.getElementById("communityProject").value;
-
+document.getElementById(
+"communityProject"
+).value.trim();
 
 
 let text =
-document.getElementById("communityText").value;
-
+document.getElementById(
+"communityText"
+).value.trim();
 
 
 if(
-name==="" ||
-project==="" ||
-text===""
-){
+name === "" ||
+project === "" ||
+text === ""
+) {
 
-alert("Please fill in all fields.");
+alert(
+"Please fill in all fields."
+);
 
 return;
 
 }
-
-
 
 
 let posts =
@@ -1800,17 +1791,15 @@ localStorage.getItem("community")
 ) || [];
 
 
-
 posts.push({
 
-name:name,
+name: name,
 
-project:project,
+project: project,
 
-text:text
+text: text
 
 });
-
 
 
 localStorage.setItem(
@@ -1819,22 +1808,25 @@ JSON.stringify(posts)
 );
 
 
+document.getElementById(
+"communityName"
+).value = "";
+
+document.getElementById(
+"communityProject"
+).value = "";
+
+document.getElementById(
+"communityText"
+).value = "";
+
 
 displayCommunity();
-
-
 
 }
 
 
-
-
-
-
-
-function displayCommunity(){
-
-
+function displayCommunity() {
 
 let posts =
 JSON.parse(
@@ -1842,150 +1834,72 @@ localStorage.getItem("community")
 ) || [];
 
 
-
 let box =
-document.getElementById("communityPosts");
+document.getElementById(
+"communityPosts"
+);
 
 
-
-let output="";
-
+let output = "";
 
 
-posts.forEach(function(post){
-
-
+posts.forEach(function(post) {
 
 output += `
 
-
 <div class="project">
-
 
 <h3>
 ${post.project}
 </h3>
 
-
 <p>
 <b>${post.name}</b>
 </p>
-
 
 <p>
 ${post.text}
 </p>
 
-
 </div>
 
-
 `;
-
-
 
 });
 
 
+box.innerHTML = output;
 
-box.innerHTML=output;
+}
+/* =====================================================
+   CAMERA SYSTEM
+===================================================== */
 
+async function startCamera() {
+
+if(!wasteModel) {
+
+alert(
+"The AI model is still loading. Please wait a moment."
+);
+
+return;
 
 }
 
 
-
-
-
-
-
-// =============================
-// UPDATE UI
-// =============================
-
-
-function updateUI(){
-
-
-
-let points =
-Number(localStorage.getItem("ecoPoints"))
-||0;
-
-
-
-let searches =
-Number(localStorage.getItem("searches"))
-||0;
-
-
-
-let collection =
-JSON.parse(
-localStorage.getItem("collection")
-) || [];
-
-
-
-
-
-document.getElementById("ecoPoints")
-.innerHTML=points;
-
-
-
-document.getElementById("totalPoints")
-.innerHTML=points;
-
-
-
-document.getElementById("projectsCreated")
-.innerHTML=searches;
-
-
-
-document.getElementById("plantsOwned")
-.innerHTML=
-collection.length;
-
-
-
-showCollection();
-
-
-displayCommunity();
-
-
-}
-
-
-
-
-
-
-
-// START APP
-
-updateUI();
-// =============================
-// CAMERA SCANNER
-// =============================
-
-let cameraStream = null;
-
-
-async function startCamera(){
-
-try{
+try {
 
 cameraStream =
 await navigator.mediaDevices.getUserMedia({
 
-video:{
-facingMode:"environment"
+video: {
+facingMode: {
+ideal: "environment"
+}
 },
 
-audio:false
+audio: false
 
 });
 
@@ -1998,34 +1912,122 @@ camera.srcObject =
 cameraStream;
 
 
-camera.style.display="block";
+camera.style.display =
+"block";
 
 
 document.getElementById(
 "takePhotoButton"
-).style.display="inline-block";
+).style.display =
+"inline-block";
+
+
+document.getElementById(
+"stopCameraButton"
+).style.display =
+"inline-block";
+
+
+document.getElementById(
+"photoCanvas"
+).style.display =
+"none";
+
+
+document.getElementById(
+"scanControls"
+).style.display =
+"none";
+
+
+document.getElementById(
+"aiResult"
+).innerHTML =
+"";
+
+
+document.getElementById(
+"aiConfidence"
+).innerHTML =
+"";
 
 
 }
-catch(error){
+
+catch(error) {
+
+console.error(error);
 
 alert(
 "Unable to access the camera. Please allow camera permission and try again."
 );
 
-console.error(error);
-
 }
 
 }
 
 
+/* =====================================================
+   STOP CAMERA
+===================================================== */
 
-// =============================
-// TAKE PHOTO
-// =============================
+function stopCamera() {
 
-function takePhoto(){
+if(cameraStream) {
+
+cameraStream
+.getTracks()
+.forEach(function(track) {
+
+track.stop();
+
+});
+
+cameraStream = null;
+
+}
+
+
+let camera =
+document.getElementById("camera");
+
+
+camera.srcObject = null;
+
+camera.style.display =
+"none";
+
+
+document.getElementById(
+"takePhotoButton"
+).style.display =
+"none";
+
+
+document.getElementById(
+"stopCameraButton"
+).style.display =
+"none";
+
+}
+
+
+/* =====================================================
+   TAKE PHOTO
+===================================================== */
+
+async function takePhoto() {
+
+if(!wasteModel) {
+
+alert(
+"The AI model has not finished loading."
+);
+
+return;
+
+}
+
 
 let camera =
 document.getElementById("camera");
@@ -2039,6 +2041,28 @@ let context =
 canvas.getContext("2d");
 
 
+if(
+camera.videoWidth === 0 ||
+camera.videoHeight === 0
+) {
+
+alert(
+"The camera is not ready yet. Please wait a moment."
+);
+
+return;
+
+}
+
+
+canvas.width =
+camera.videoWidth;
+
+
+canvas.height =
+camera.videoHeight;
+
+
 context.drawImage(
 camera,
 0,
@@ -2048,49 +2072,270 @@ canvas.height
 );
 
 
-canvas.style.display="block";
+canvas.style.display =
+"block";
+
+
+document.getElementById(
+"aiResult"
+).innerHTML =
+"🔎 Identifying material...";
+
+
+document.getElementById(
+"aiConfidence"
+).innerHTML =
+"";
 
 
 document.getElementById(
 "scanControls"
-).style.display="block";
+).style.display =
+"none";
 
 
+stopCamera();
 
-// Stop camera after taking photo
 
-if(cameraStream){
+try {
 
-cameraStream
-.getTracks()
-.forEach(function(track){
+let predictions =
+await wasteModel.predict(canvas);
 
-track.stop();
 
-});
+predictions.sort(
+function(a,b) {
 
-cameraStream=null;
+return b.probability -
+a.probability;
 
 }
-
-}
-
+);
 
 
-// =============================
-// USE SCANNED MATERIAL
-// =============================
+let best =
+predictions[0];
 
-function useScannedMaterial(){
+
+let confidence =
+best.probability * 100;
+
+
+document.getElementById(
+"aiResult"
+).innerHTML =
+
+"Detected: <strong>" +
+best.className +
+"</strong>";
+
+
+document.getElementById(
+"aiConfidence"
+).innerHTML =
+
+"Confidence: " +
+confidence.toFixed(1) +
+"%";
+
+
+if(confidence >= 50) {
 
 let material =
-document.getElementById(
-"scannedMaterial"
-).value;
+convertAIClassToMaterial(
+best.className
+);
 
+
+if(material) {
+
+addDetectedMaterial(material);
+
+
+document.getElementById(
+"aiResult"
+).innerHTML +=
+
+"<br>✅ Material added automatically!";
+
+
+}
+
+else {
+
+document.getElementById(
+"aiResult"
+).innerHTML +=
+
+"<br>⚠️ This AI class does not match a TrashForm material.";
+
+
+}
+
+}
+
+else {
+
+document.getElementById(
+"aiResult"
+).innerHTML +=
+
+"<br>⚠️ The AI is not confident enough. Try another photo.";
+
+
+}
+
+
+/* Always show manual backup */
+
+document.getElementById(
+"scanControls"
+).style.display =
+"block";
+
+}
+
+catch(error) {
+
+console.error(error);
+
+document.getElementById(
+"aiResult"
+).innerHTML =
+"❌ Could not identify the material.";
+
+document.getElementById(
+"scanControls"
+).style.display =
+"block";
+
+}
+
+}
+
+
+/* =====================================================
+   CONVERT AI CLASS INTO TRASHFORM MATERIAL
+===================================================== */
+
+function convertAIClassToMaterial(className) {
+
+let name =
+className.toLowerCase().trim();
+
+
+/*
+These checks allow your Teachable Machine
+classes to have names such as:
+
+Plastic
+Plastic Bottle
+plastic bottle
+
+Milk Carton
+Carton
+
+Cardboard
+
+Can
+Aluminum Can
+
+Glass
+Glass Bottle
+
+Clothes
+Old Clothes
+
+Egg
+Egg Carton
+*/
+
+
+if(
+name.includes("plastic")
+) {
+
+return "plastic";
+
+}
+
+
+if(
+name.includes("carton") &&
+!name.includes("egg")
+) {
+
+return "carton";
+
+}
+
+
+if(
+name.includes("cardboard")
+) {
+
+return "cardboard";
+
+}
+
+
+if(
+name.includes("aluminum") ||
+name.includes("aluminium") ||
+name.includes("can")
+) {
+
+return "cans";
+
+}
+
+
+if(
+name.includes("glass")
+) {
+
+return "glass";
+
+}
+
+
+if(
+name.includes("clothes") ||
+name.includes("cloth")
+) {
+
+return "clothes";
+
+}
+
+
+if(
+name.includes("egg")
+) {
+
+return "eggs";
+
+}
+
+
+return null;
+
+}
+
+
+/* =====================================================
+   ADD AI-DETECTED MATERIAL
+===================================================== */
+
+function addDetectedMaterial(material) {
 
 let input =
 document.getElementById(material);
+
+
+if(!input) {
+return;
+}
 
 
 let current =
@@ -2101,31 +2346,111 @@ input.value =
 current + 1;
 
 
-document.getElementById(
-"scanControls"
-).style.display="none";
-
+/* Select the matching option in manual backup */
 
 document.getElementById(
-"camera"
-).style.display="none";
-
-
-document.getElementById(
-"takePhotoButton"
-).style.display="none";
-
-
-alert(
-"Material added! You can now find an upcycling idea."
-);
+"scannedMaterial"
+).value =
+material;
 
 }
 
+
+/* =====================================================
+   MANUAL MATERIAL BACKUP
+===================================================== */
+
+function useScannedMaterial() {
+
+let material =
+document.getElementById(
+"scannedMaterial"
+).value;
+
+
+addDetectedMaterial(material);
+
+
+document.getElementById(
+"scanControls"
+).style.display =
+"none";
+
+
+document.getElementById(
+"aiResult"
+).innerHTML =
+"✅ Material added!";
+
+
+document.getElementById(
+"aiConfidence"
+).innerHTML =
+"";
+
+
+}
+
+
+/* =====================================================
+   UPDATE UI
+===================================================== */
+
+function updateUI() {
+
+let points =
+Number(localStorage.getItem("ecoPoints"))
+|| 0;
+
+
+let searches =
+Number(localStorage.getItem("searches"))
+|| 0;
+
+
+let collection =
+JSON.parse(
+localStorage.getItem("collection")
+) || [];
+
+
+document.getElementById(
+"ecoPoints"
+).innerHTML =
+points;
+
+
+document.getElementById(
+"totalPoints"
+).innerHTML =
+points;
+
+
+document.getElementById(
+"projectsCreated"
+).innerHTML =
+searches;
+
+
+document.getElementById(
+"plantsOwned"
+).innerHTML =
+collection.length;
+
+
+showCollection();
+
+displayCommunity();
+
+}
+
+
+/* =====================================================
+   END OF APPLICATION
+===================================================== */
+
 </script>
 
-
 </body>
-
 
 </html>
