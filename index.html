@@ -401,7 +401,105 @@ onclick="randomIdea()">
 🎲 Inspire Me
 
 </button>
+<div class="card">
 
+<h3>📷 Scan Waste</h3>
+
+<p>
+Take a photo of a waste item and add it to your materials.
+</p>
+
+<button
+class="mainButton"
+onclick="startCamera()">
+
+Open Camera
+
+</button>
+
+<br><br>
+
+<video
+id="camera"
+width="300"
+height="220"
+autoplay
+playsinline
+style="display:none; border-radius:10px;">
+
+</video>
+
+<br>
+
+<button
+id="takePhotoButton"
+class="mainButton"
+onclick="takePhoto()"
+style="display:none;">
+
+Take Photo
+
+</button>
+
+<canvas
+id="photoCanvas"
+width="300"
+height="220"
+style="display:none; border-radius:10px;">
+
+</canvas>
+
+<br>
+
+<div id="scanControls" style="display:none;">
+
+<p><b>What material is in the photo?</b></p>
+
+<select id="scannedMaterial">
+
+<option value="plastic">
+Plastic Bottle
+</option>
+
+<option value="carton">
+Milk Carton
+</option>
+
+<option value="cardboard">
+Cardboard
+</option>
+
+<option value="cans">
+Aluminum Can
+</option>
+
+<option value="glass">
+Glass Bottle
+</option>
+
+<option value="clothes">
+Old Clothes
+</option>
+
+<option value="eggs">
+Egg Carton
+</option>
+
+</select>
+
+<br><br>
+
+<button
+class="mainButton"
+onclick="useScannedMaterial()">
+
+Use This Material
+
+</button>
+
+</div>
+
+</div>
 
 
 </div>
